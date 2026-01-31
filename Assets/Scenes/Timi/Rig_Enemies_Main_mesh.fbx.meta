@@ -83,7 +83,342 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: Rig_Enemies_Main_mesh(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Villan_en_01
+      parentName: Rig_Enemies_Main_mesh(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:Hips
+      parentName: Rig_Enemies_Main_mesh(Clone)
+      position: {x: -4.656613e-10, y: 0.18024822, z: 0.001671091}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:Spine
+      parentName: FinalBaseMesh:Hips
+      position: {x: -0, y: 0.016454926, z: -0.0026147163}
+      rotation: {x: -0.07871071, y: 0, z: -0, w: 0.9968975}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:Spine1
+      parentName: FinalBaseMesh:Spine
+      position: {x: -0, y: 0.01943824, z: -2.1412191e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:Spine2
+      parentName: FinalBaseMesh:Spine1
+      position: {x: -0, y: 0.022215148, z: -2.795537e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:Neck
+      parentName: FinalBaseMesh:Spine2
+      position: {x: -0, y: 0.02499204, z: 9.1263586e-10}
+      rotation: {x: 0.07871068, y: -0, z: -0, w: 0.9968975}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:Head
+      parentName: FinalBaseMesh:Neck
+      position: {x: -0, y: 0.01493452, z: 0.005272857}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:HeadTop_End
+      parentName: FinalBaseMesh:Head
+      position: {x: -0, y: 0.034546033, z: 0.012196998}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftShoulder
+      parentName: FinalBaseMesh:Spine2
+      position: {x: -0.010465978, y: 0.020889534, z: -0.0006188433}
+      rotation: {x: 0.55918014, y: -0.42157602, z: 0.5897689, w: 0.40219897}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftArm
+      parentName: FinalBaseMesh:LeftShoulder
+      position: {x: -6.2076705e-11, y: 0.02251391, z: 3.771133e-10}
+      rotation: {x: -0.14524044, y: -0.1444022, z: -0.0037294622, w: 0.9787948}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftForeArm
+      parentName: FinalBaseMesh:LeftArm
+      position: {x: 8.939057e-11, y: 0.04390861, z: -1.2478311e-10}
+      rotation: {x: -0.014856856, y: 0.0019196565, z: -0.03764213, w: 0.999179}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHand
+      parentName: FinalBaseMesh:LeftForeArm
+      position: {x: -9.5440794e-11, y: 0.036261663, z: 0.0000000012676399}
+      rotation: {x: 0.083018765, y: 0.029356217, z: 0.02968801, w: 0.995673}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandThumb1
+      parentName: FinalBaseMesh:LeftHand
+      position: {x: 0.0059673, y: 0.009682505, z: 0.0027045014}
+      rotation: {x: 0.038353786, y: 0.00942502, z: -0.32524487, w: 0.94480467}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandThumb2
+      parentName: FinalBaseMesh:LeftHandThumb1
+      position: {x: 0.00075929076, y: 0.00932175, z: 1.3840346e-10}
+      rotation: {x: 0.022109287, y: 0.00017566142, z: -0.043139096, w: 0.9988244}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandThumb3
+      parentName: FinalBaseMesh:LeftHandThumb2
+      position: {x: -0.0005430131, y: 0.007805197, z: -1.4143406e-11}
+      rotation: {x: -0.038936853, y: 0.0016539443, z: 0.007949291, w: 0.9992087}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandThumb4
+      parentName: FinalBaseMesh:LeftHandThumb3
+      position: {x: -0.00021627716, y: 0.006319856, z: -6.9810074e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandIndex1
+      parentName: FinalBaseMesh:LeftHand
+      position: {x: 0.006173683, y: 0.023513133, z: -0.00045054077}
+      rotation: {x: 0.075834215, y: -0.008848115, z: -0.06681065, w: 0.9948403}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandIndex2
+      parentName: FinalBaseMesh:LeftHandIndex1
+      position: {x: -0.000029315574, y: 0.006481269, z: -2.5316547e-11}
+      rotation: {x: 0.039877083, y: 0.00010858101, z: 0.003478288, w: 0.99919856}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandIndex3
+      parentName: FinalBaseMesh:LeftHandIndex2
+      position: {x: 0.000073648785, y: 0.0061152987, z: -1.523503e-11}
+      rotation: {x: -0.039096143, y: -0.0000798841, z: -0.0054958044, w: 0.99922043}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandIndex4
+      parentName: FinalBaseMesh:LeftHandIndex3
+      position: {x: -0.00004433342, y: 0.00521694, z: -3.138254e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandMiddle1
+      parentName: FinalBaseMesh:LeftHand
+      position: {x: 0.0017880161, y: 0.023861017, z: 0.00001260793}
+      rotation: {x: -0.015434326, y: 0.000095210155, z: -0.0061678276, w: 0.9998619}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandMiddle2
+      parentName: FinalBaseMesh:LeftHandMiddle1
+      position: {x: -0.000097408985, y: 0.00648456, z: 2.5927144e-10}
+      rotation: {x: 0.036410037, y: -0.0003971007, z: 0.008350954, w: 0.999302}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandMiddle3
+      parentName: FinalBaseMesh:LeftHandMiddle2
+      position: {x: 0.00004856041, y: 0.0064964867, z: 4.8596946e-11}
+      rotation: {x: 0.0047627855, y: -0, z: -0, w: 0.9999887}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandMiddle4
+      parentName: FinalBaseMesh:LeftHandMiddle3
+      position: {x: 0.000048848487, y: 0.0058448873, z: 1.5806201e-12}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandRing1
+      parentName: FinalBaseMesh:LeftHand
+      position: {x: -0.001960822, y: 0.024038915, z: -0.0005132551}
+      rotation: {x: 0.026214916, y: 0.0038630944, z: 0.03607302, w: 0.99899787}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandRing2
+      parentName: FinalBaseMesh:LeftHandRing1
+      position: {x: -0.000037986043, y: 0.0059512886, z: -1.1715076e-10}
+      rotation: {x: 0.034629185, y: -0.00008327977, z: 0.004684398, w: 0.9993893}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandRing3
+      parentName: FinalBaseMesh:LeftHandRing2
+      position: {x: 0.000028400533, y: 0.005428142, z: -2.6334846e-12}
+      rotation: {x: -0.04135827, y: -0.00001262852, z: -0.000121850906, w: 0.99914443}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandRing4
+      parentName: FinalBaseMesh:LeftHandRing3
+      position: {x: 0.000009585507, y: 0.004631301, z: 2.5730529e-12}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandPinky1
+      parentName: FinalBaseMesh:LeftHand
+      position: {x: -0.0060008774, y: 0.02251234, z: -0.0006880257}
+      rotation: {x: 0.052630685, y: 0.039405636, z: 0.01380487, w: 0.99774075}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandPinky2
+      parentName: FinalBaseMesh:LeftHandPinky1
+      position: {x: -0.000010265742, y: 0.0052845846, z: -3.715126e-12}
+      rotation: {x: 0.036228478, y: -0.00009977816, z: 0.00079143664, w: 0.9993432}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandPinky3
+      parentName: FinalBaseMesh:LeftHandPinky2
+      position: {x: 0.00000065051336, y: 0.0042023626, z: -9.953164e-11}
+      rotation: {x: -0.04048284, y: -0.00003311567, z: 0.00047566064, w: 0.99918014}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandPinky4
+      parentName: FinalBaseMesh:LeftHandPinky3
+      position: {x: 0.000009615039, y: 0.0033733372, z: -2.5658089e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightShoulder
+      parentName: FinalBaseMesh:Spine2
+      position: {x: 0.010465978, y: 0.02089978, z: -0.00068331935}
+      rotation: {x: -0.55691165, y: -0.42346442, z: 0.5914465, w: -0.40089697}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightArm
+      parentName: FinalBaseMesh:RightShoulder
+      position: {x: 6.97604e-11, y: 0.02251391, z: 3.7579617e-10}
+      rotation: {x: -0.14527573, y: 0.14040983, z: 0.00044605136, w: 0.9793773}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightForeArm
+      parentName: FinalBaseMesh:RightArm
+      position: {x: 4.8263758e-11, y: 0.043901533, z: 5.7702265e-10}
+      rotation: {x: -0.014380837, y: -0.0017928623, z: 0.03744814, w: 0.9991935}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHand
+      parentName: FinalBaseMesh:RightForeArm
+      position: {x: -1.5783615e-10, y: 0.036271792, z: -0.0000000012877447}
+      rotation: {x: 0.086467415, y: -0.018889427, z: -0.03176116, w: 0.99556917}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandThumb1
+      parentName: FinalBaseMesh:RightHand
+      position: {x: -0.005998724, y: 0.009645006, z: 0.0025293375}
+      rotation: {x: 0.03181361, y: -0.009781741, z: 0.31879732, w: 0.94723845}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandThumb2
+      parentName: FinalBaseMesh:RightHandThumb1
+      position: {x: -0.00079475594, y: 0.009275205, z: 1.1645694e-10}
+      rotation: {x: 0.025795888, y: -0.00048699946, z: 0.044268653, w: 0.99868643}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandThumb3
+      parentName: FinalBaseMesh:RightHandThumb2
+      position: {x: 0.0004879292, y: 0.008001637, z: 1.1788987e-11}
+      rotation: {x: -0.040152922, y: -0.0015764403, z: -0.0026082094, w: 0.99918896}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandThumb4
+      parentName: FinalBaseMesh:RightHandThumb3
+      position: {x: 0.00030682722, y: 0.0063288454, z: -5.457524e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandIndex1
+      parentName: FinalBaseMesh:RightHand
+      position: {x: -0.0061833565, y: 0.023210535, z: -0.0003357409}
+      rotation: {x: 0.07407336, y: 0.0066559217, z: 0.06248782, w: 0.9952709}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandIndex2
+      parentName: FinalBaseMesh:RightHandIndex1
+      position: {x: 0.000054429966, y: 0.006217474, z: 5.8249544e-11}
+      rotation: {x: 0.038931634, y: -0.000049809434, z: -0.0054686116, w: 0.9992269}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandIndex3
+      parentName: FinalBaseMesh:RightHandIndex2
+      position: {x: -0.000068138834, y: 0.006338073, z: -2.3418023e-11}
+      rotation: {x: -0.040536333, y: 0.000059078895, z: 0.0018145905, w: 0.9991765}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandIndex4
+      parentName: FinalBaseMesh:RightHandIndex3
+      position: {x: 0.000013708536, y: 0.0049006757, z: 3.35967e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandMiddle1
+      parentName: FinalBaseMesh:RightHand
+      position: {x: -0.0016718155, y: 0.02666848, z: -0.00015099026}
+      rotation: {x: 0.028661478, y: 0.00045834284, z: 0.015983135, w: 0.9994613}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandMiddle2
+      parentName: FinalBaseMesh:RightHandMiddle1
+      position: {x: 0.000052783555, y: 0.0056407116, z: 1.5251637e-10}
+      rotation: {x: 0.037726946, y: -0.000016024182, z: -0.006422989, w: 0.99926746}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandMiddle3
+      parentName: FinalBaseMesh:RightHandMiddle2
+      position: {x: -0.00005398522, y: 0.0055247634, z: -4.8126798e-11}
+      rotation: {x: -0.04044734, y: 0.00009617782, z: 0.001668267, w: 0.9991804}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandMiddle4
+      parentName: FinalBaseMesh:RightHandMiddle3
+      position: {x: 0.0000012016341, y: 0.004782944, z: 4.9243738e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandRing1
+      parentName: FinalBaseMesh:RightHand
+      position: {x: 0.0024359794, y: 0.025766442, z: -0.0005784419}
+      rotation: {x: 0.053447854, y: -0.004640118, z: -0.023960153, w: 0.9982724}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandRing2
+      parentName: FinalBaseMesh:RightHandRing1
+      position: {x: 0.00003812786, y: 0.0052699074, z: 1.3957563e-11}
+      rotation: {x: 0.035585556, y: -0.00009656552, z: -0.0062237326, w: 0.9993472}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandRing3
+      parentName: FinalBaseMesh:RightHandRing2
+      position: {x: -0.000043108997, y: 0.0049028117, z: 1.6796271e-11}
+      rotation: {x: -0.038245168, y: 0.00025912918, z: 0.0032105767, w: 0.9992632}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandRing4
+      parentName: FinalBaseMesh:RightHandRing3
+      position: {x: 0.0000049810997, y: 0.004072498, z: -3.8570744e-12}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandPinky1
+      parentName: FinalBaseMesh:RightHand
+      position: {x: 0.0054191933, y: 0.022038532, z: -0.0003481057}
+      rotation: {x: 0.03736207, y: -0.027022531, z: -0.030726247, w: 0.9984637}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandPinky2
+      parentName: FinalBaseMesh:RightHandPinky1
+      position: {x: 0.000011832201, y: 0.005311487, z: -8.473027e-12}
+      rotation: {x: 0.03242045, y: 0.00036037702, z: -0.00030034303, w: 0.99947417}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandPinky3
+      parentName: FinalBaseMesh:RightHandPinky2
+      position: {x: 0.0000070448236, y: 0.0046173222, z: -1.2128955e-11}
+      rotation: {x: -0.034492858, y: 0.00027253787, z: -0.0027295372, w: 0.99940115}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightHandPinky4
+      parentName: FinalBaseMesh:RightHandPinky3
+      position: {x: -0.000018876384, y: 0.003622945, z: -6.3814553e-12}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftUpLeg
+      parentName: FinalBaseMesh:Hips
+      position: {x: -0.015466393, y: -0.009139156, z: -0.0021263727}
+      rotation: {x: 0.0015899255, y: -0.027396893, z: 0.99794436, w: 0.057913765}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftLeg
+      parentName: FinalBaseMesh:LeftUpLeg
+      position: {x: 3.3983802e-10, y: 0.07685103, z: -1.9660905e-12}
+      rotation: {x: -0.0118007315, y: -0.00049697433, z: 0.042073622, w: 0.9990447}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftFoot
+      parentName: FinalBaseMesh:LeftLeg
+      position: {x: 1.120404e-10, y: 0.07183921, z: -1.7321154e-10}
+      rotation: {x: 0.49098343, y: -0.0333458, z: 0.018811585, w: 0.87032723}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftToeBase
+      parentName: FinalBaseMesh:LeftFoot
+      position: {x: 6.823435e-12, y: 0.031356975, z: -8.0185697e-10}
+      rotation: {x: 0.29798406, y: 0.017461998, z: -0.0054520285, w: 0.95439553}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftToe_End
+      parentName: FinalBaseMesh:LeftToeBase
+      position: {x: 1.455462e-11, y: 0.012148783, z: 8.740055e-12}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightUpLeg
+      parentName: FinalBaseMesh:Hips
+      position: {x: 0.015466393, y: -0.009139156, z: -0.0025071632}
+      rotation: {x: -0.0013368322, y: -0.023025569, z: 0.99805325, w: -0.057945576}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightLeg
+      parentName: FinalBaseMesh:RightUpLeg
+      position: {x: 5.957484e-11, y: 0.07681746, z: 1.9032115e-10}
+      rotation: {x: -0.02162614, y: 0.0009113883, z: -0.04209566, w: 0.99887913}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightFoot
+      parentName: FinalBaseMesh:RightLeg
+      position: {x: 3.6041888e-11, y: 0.071904264, z: 2.150949e-10}
+      rotation: {x: 0.4992009, y: 0.03252431, z: -0.01875555, w: 0.8656725}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightToeBase
+      parentName: FinalBaseMesh:RightFoot
+      position: {x: 2.782916e-12, y: 0.03171846, z: 1.750129e-11}
+      rotation: {x: 0.2940647, y: -0.016048903, z: 0.004938497, w: 0.95563805}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:RightToe_End
+      parentName: FinalBaseMesh:RightToeBase
+      position: {x: 4.9184654e-12, y: 0.012121704, z: -3.3666037e-12}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
