@@ -102,6 +102,8 @@ public abstract class NPCBase : Entity
         if (Agent == null || !Agent.isOnNavMesh) return;
 
         base.Update();
+        HandleDetectionLogic();
+        
         currentState?.DoState(this);
         Debug.Log($"{gameObject.name} este în starea: {CurrentStateID}");
 
@@ -111,12 +113,48 @@ public abstract class NPCBase : Entity
             animator.SetInteger("State", (int)CurrentStateID);
         }
     }
+    
+    // protected override void HandleDetectionLogic()
+    // {
+    //     // 1. DACĂ SUNTEM ÎN ATAC, IGNORĂM TOT!
+    //     // Nu mai calculăm bară, nu mai raportăm la UI, nu mai schimbăm starea.
+    //     if (CurrentStateID == NPCStateID.Attack) 
+    //     {
+    //         // Putem forța bara la 100 ca să nu scadă în timp ce ne batem
+    //         currentDetection = 100f; 
+    //         return; 
+    //     }
+
+    //     // 2. Verificăm Masca (Logica ta anterioară)
+    //     bool isInvisible = MaskSystem.Instance != null && MaskSystem.Instance.IsPlayerGhosted();
+    //     bool effectivelyCanSee = canSeePlayer && !isInvisible;
+
+    //     // 3. Calculăm creșterea/scăderea barei
+    //     if (effectivelyCanSee)
+    //         currentDetection += data.detectionSpeed * Time.deltaTime;
+    //     else
+    //         currentDetection -= data.coolDownSpeed * Time.deltaTime;
+
+    //     currentDetection = Mathf.Clamp(currentDetection, 0, 100);
+        
+    //     // 4. Raportăm la UI (ScreenColorController)
+    //     if (ScreenColorController.Instance != null)
+    //     {
+    //         ScreenColorController.Instance.ReportDetection(currentDetection);
+    //     }
+
+    //     // 5. Tranziția către Chase (DOAR dacă nu suntem deja în Chase sau Attack)
+    //     if (currentDetection >= 100 && CurrentStateID != NPCStateID.Chase && CurrentStateID != NPCStateID.Attack)
+    //     {
+    //         OnPlayerDetected();
+    //     }
+    // }
 
     protected override void OnPlayerDetected()
     {
         // Dacă sunt deja la bătaie, nu mă mai pune să "încep" urmărirea
         if (CurrentStateID == NPCStateID.Attack || CurrentStateID == NPCStateID.Chase) return;
-        
+
         ToChase();
     }
 
@@ -154,6 +192,23 @@ public abstract class NPCBase : Entity
             }
 
             currentDetection = Mathf.Max(currentDetection, 30f); 
+        }
+    }
+
+    public void AnimationEvent_AttackHit()
+    {
+        // Verificăm dacă suntem în AttackState și chemăm metoda de acolo
+        if (currentState is AttackState attack)
+        {
+            attack.OnAttackHit();
+        }
+    }
+
+    public void AnimationEvent_AttackEnd()
+    {
+        if (currentState is AttackState attack)
+        {
+            attack.OnAttackEnd();
         }
     }
 

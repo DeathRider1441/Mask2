@@ -48,7 +48,7 @@ public class Entity : MonoBehaviour
         if (isDead || playerTransform == null || data == null) return;
 
         CheckDetection();
-        HandleDetectionLogic();
+        // HandleDetectionLogic();
     }
 
     public virtual void TakeDamage(int amount)
@@ -110,12 +110,12 @@ public class Entity : MonoBehaviour
 
     protected virtual void HandleDetectionLogic()
     {
-        if (canSeePlayer)
-            currentDetection += data.detectionSpeed * Time.deltaTime;
-        else
-            currentDetection -= data.coolDownSpeed * Time.deltaTime;
+        // if (canSeePlayer)
+        //     currentDetection += data.detectionSpeed * Time.deltaTime;
+        // else
+        //     currentDetection -= data.coolDownSpeed * Time.deltaTime;
 
-        currentDetection = Mathf.Clamp(currentDetection, 0, 100);
+        // currentDetection = Mathf.Clamp(currentDetection, 0, 100);
 
         // ADAUGĂ ACEASTĂ VERIFICARE:
         // Trigerăm detecția DOAR dacă bara abia a ajuns la 100. 
