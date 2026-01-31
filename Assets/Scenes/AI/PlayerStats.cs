@@ -8,6 +8,9 @@ public class PlayerStats : MonoBehaviour
     [Header("Health Settings")]
     [SerializeField] private int maxHealth = 3;
     public int currentHealth;
+    [Header("Sound Keys")]
+    [SerializeField] private string damageSoundName = "PlayerDamage";
+    [SerializeField] private string deathSoundName = "PlayerDeath";
 
     private void Awake()
     {
@@ -19,7 +22,7 @@ public class PlayerStats : MonoBehaviour
         }
 
         Instance = this;
-        
+
         // Dacă vrei ca viața să nu se reseteze la schimbarea scenei:
         // DontDestroyOnLoad(gameObject);
 
@@ -30,6 +33,7 @@ public class PlayerStats : MonoBehaviour
     {
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        GameEvents.TriggerSound(damageSoundName);
 
         Debug.Log($"Jucătorul a luat damage! Viață rămasă: {currentHealth}");
 
@@ -47,6 +51,7 @@ public class PlayerStats : MonoBehaviour
     private void Die()
     {
         Debug.Log("Jucătorul a murit!");
-        // Aici poți declanșa un ecran de Game Over sau reîncărcarea scenei
+        GameEvents.TriggerSound(deathSoundName);
+        Debug.Log("<color=red>Jucătorul a murit!</color>");
     }
 }
