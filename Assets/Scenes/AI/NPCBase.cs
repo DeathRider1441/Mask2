@@ -75,11 +75,16 @@ public abstract class NPCBase : Entity
             currentDetection -= data.coolDownSpeed * Time.deltaTime;
 
         currentDetection = Mathf.Clamp(currentDetection, 0, 100);
+        
+        if (ScreenColorController.Instance != null)
+        {
+            ScreenColorController.Instance.ReportDetection(currentDetection);
+        }
 
         // ADAUGĂ ACEASTĂ VERIFICARE:
         // Trigerăm detecția DOAR dacă bara abia a ajuns la 100. 
         // Dacă e deja 100, nu mai chemăm OnPlayerDetected() continuu.
-        if (currentDetection >= 100 && CurrentStateID != NPCBase.NPCStateID.Chase && CurrentStateID != NPCBase.NPCStateID.Attack) 
+        if (currentDetection >= 100 && CurrentStateID != NPCBase.NPCStateID.Chase && CurrentStateID != NPCBase.NPCStateID.Attack)
         {
             OnPlayerDetected();
         }
