@@ -33,6 +33,7 @@ public class FirstPersonController : MonoBehaviour
     public bool crosshair = true;
     public Sprite crosshairImage;
     public Color crosshairColor = Color.white;
+    private bool stepSignalSent = false;
 
     // Internal Variables
     private float yaw = 0.0f;
@@ -501,29 +502,51 @@ public class FirstPersonController : MonoBehaviour
     {
         if(isWalking)
         {
-            // Calculates HeadBob speed during sprint
-            if(isSprinting)
+            // ... (Codul tău existent pentru calcul timer și mișcare joint)
+            if(isSprinting) timer += Time.deltaTime * (bobSpeed + sprintSpeed);
+            else if (isCrouched) timer += Time.deltaTime * (bobSpeed * speedReduction);
+            else timer += Time.deltaTime * bobSpeed;
+
+            joint.localPosition = new Vector3(
+                jointOriginalPos.x + Mathf.Sin(timer) * bobAmount.x, 
+                jointOriginalPos.y + Mathf.Sin(timer) * bobAmount.y, 
+                jointOriginalPos.z + Mathf.Sin(timer) * bobAmount.z
+            );
+
+            // --- TRIGGER PASI ---
+            if (Mathf.Sin(timer) < -0.9f)
             {
-                timer += Time.deltaTime * (bobSpeed + sprintSpeed);
+                if (!stepSignalSent)
+                {
+                    string stepType = isSprinting ? "Step_Sprint" : (isCrouched ? "Step_Crouch" : "Step_Walk");
+                    GameEvents.TriggerSound(stepType);
+                    stepSignalSent = true; 
+                }
             }
-            // Calculates HeadBob speed during crouched movement
-            else if (isCrouched)
-            {
-                timer += Time.deltaTime * (bobSpeed * speedReduction);
-            }
-            // Calculates HeadBob speed during walking
             else
             {
-                timer += Time.deltaTime * bobSpeed;
+                stepSignalSent = false;
             }
-            // Applies HeadBob movement
-            joint.localPosition = new Vector3(jointOriginalPos.x + Mathf.Sin(timer) * bobAmount.x, jointOriginalPos.y + Mathf.Sin(timer) * bobAmount.y, jointOriginalPos.z + Mathf.Sin(timer) * bobAmount.z);
         }
         else
         {
-            // Resets when play stops moving
-            timer = 0;
-            joint.localPosition = new Vector3(Mathf.Lerp(joint.localPosition.x, jointOriginalPos.x, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.y, jointOriginalPos.y, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.z, jointOriginalPos.z, Time.deltaTime * bobSpeed));
+            // --- ACEASTA ESTE ZONA DE STOP ---
+            if (timer > 0) // Verificăm dacă timer-ul era activ înainte de oprire
+            {
+                // Oprim sunetele de pași. Trimitem semnalul generic sau unul specific.
+                GameEvents.TriggerStopSound("Step_Walk");
+                GameEvents.TriggerStopSound("Step_Sprint");
+                GameEvents.TriggerStopSound("Step_Crouch");
+            }
+
+            timer = 0; // Resetăm timer-ul
+            
+            // Codul tău de Lerp pentru resetarea poziției joint-ului
+            joint.localPosition = new Vector3(
+                Mathf.Lerp(joint.localPosition.x, jointOriginalPos.x, Time.deltaTime * bobSpeed), 
+                Mathf.Lerp(joint.localPosition.y, jointOriginalPos.y, Time.deltaTime * bobSpeed), 
+                Mathf.Lerp(joint.localPosition.z, jointOriginalPos.z, Time.deltaTime * bobSpeed)
+            );
         }
     }
 }
