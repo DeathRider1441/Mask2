@@ -33,6 +33,7 @@ public class FirstPersonController : MonoBehaviour
     public bool crosshair = true;
     public Sprite crosshairImage;
     public Color crosshairColor = Color.white;
+    private bool stepSignalSent = false;
 
     // Internal Variables
     private float yaw = 0.0f;
@@ -501,29 +502,68 @@ public class FirstPersonController : MonoBehaviour
     {
         if(isWalking)
         {
-            // Calculates HeadBob speed during sprint
-            if(isSprinting)
+            // ... (Codul tău existent pentru calcul timer)
+            if(isSprinting) timer += Time.deltaTime * (bobSpeed + sprintSpeed);
+            else if (isCrouched) timer += Time.deltaTime * (bobSpeed * speedReduction);
+            else timer += Time.deltaTime * bobSpeed;
+
+            joint.localPosition = new Vector3(
+                jointOriginalPos.x + Mathf.Sin(timer) * bobAmount.x, 
+                jointOriginalPos.y + Mathf.Sin(timer) * bobAmount.y, 
+                jointOriginalPos.z + Mathf.Sin(timer) * bobAmount.z
+            );
+
+            // --- TRIGGER PASI & ZGOMOT ---
+            // Când sinusul e jos (piciorul atinge pământul)
+            if (Mathf.Sin(timer) < -0.9f)
             {
-                timer += Time.deltaTime * (bobSpeed + sprintSpeed);
+                if (!stepSignalSent)
+                {
+                    // 1. AUDIO: Trimitem numele sunetului către SoundManager
+                    string stepType = isSprinting ? "Step_Sprint" : (isCrouched ? "Step_Crouch" : "Step_Walk");
+                    GameEvents.TriggerSound(stepType);
+
+                    // 2. AI: Trimitem semnalul de zgomot către Inamici
+                    // Aici calculăm raza în funcție de starea jucătorului
+                    float noiseRadius = 3f; // Default pentru mers
+
+                    if (isCrouched) 
+                    {
+                        noiseRadius = 0.5f; // Foarte mic, jumătate de metru (cum ai cerut)
+                    }
+                    else if (isSprinting)
+                    {
+                        noiseRadius = 10f; // Alergatul face zgomot mare
+                    }
+                    
+                    // Trimitem poziția curentă și raza calculată
+                    GameEvents.TriggerNoise(transform.position, noiseRadius);
+
+                    stepSignalSent = true; 
+                }
             }
-            // Calculates HeadBob speed during crouched movement
-            else if (isCrouched)
-            {
-                timer += Time.deltaTime * (bobSpeed * speedReduction);
-            }
-            // Calculates HeadBob speed during walking
             else
             {
-                timer += Time.deltaTime * bobSpeed;
+                stepSignalSent = false;
             }
-            // Applies HeadBob movement
-            joint.localPosition = new Vector3(jointOriginalPos.x + Mathf.Sin(timer) * bobAmount.x, jointOriginalPos.y + Mathf.Sin(timer) * bobAmount.y, jointOriginalPos.z + Mathf.Sin(timer) * bobAmount.z);
         }
         else
         {
-            // Resets when play stops moving
+            // --- ZONA DE STOP ---
+            if (timer > 0)
+            {
+                GameEvents.TriggerStopSound("Step_Walk");
+                GameEvents.TriggerStopSound("Step_Sprint");
+                GameEvents.TriggerStopSound("Step_Crouch");
+            }
+
             timer = 0;
-            joint.localPosition = new Vector3(Mathf.Lerp(joint.localPosition.x, jointOriginalPos.x, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.y, jointOriginalPos.y, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.z, jointOriginalPos.z, Time.deltaTime * bobSpeed));
+            
+            joint.localPosition = new Vector3(
+                Mathf.Lerp(joint.localPosition.x, jointOriginalPos.x, Time.deltaTime * bobSpeed), 
+                Mathf.Lerp(joint.localPosition.y, jointOriginalPos.y, Time.deltaTime * bobSpeed), 
+                Mathf.Lerp(joint.localPosition.z, jointOriginalPos.z, Time.deltaTime * bobSpeed)
+            );
         }
     }
 }

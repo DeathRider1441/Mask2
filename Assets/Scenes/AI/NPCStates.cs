@@ -154,12 +154,14 @@ public class ChaseState : INPCState
 
     public void EnterState(NPCBase npc)
     {
+        Debug.Log("<color=red>A intrat in enter Chase</color>");
+
         if (npc.Agent.isOnNavMesh)
         {
             npc.Agent.isStopped = false;
             npc.Agent.speed = npc.data.runSpeed;
             // Ne asigurăm că nu are stopping distance mare pentru a nu se opri prea devreme
-            npc.Agent.stoppingDistance = 1.5f; 
+            npc.Agent.stoppingDistance = 2f;
         }
         boredomTimer = 0f;
     }
@@ -170,14 +172,23 @@ public class ChaseState : INPCState
         {
             // --- LOGICA DE ANTICIPARE (PREDICTION) ---
             boredomTimer = 0f;
-            
+
+            float distanceToPlayer = Vector3.Distance(npc.transform.position, npc.playerTransform.position);
+        
+            // Dacă suntem destul de aproape, atacăm!
+            if (distanceToPlayer <= npc.Agent.stoppingDistance + 2f) 
+            {
+                npc.ToAttack();
+                return;
+            }
+
             // Calculăm vectorul de mișcare al jucătorului
             // Dacă playerul are Rigidbody, folosim velocity. Dacă nu, calculăm diferența de poziție.
             Vector3 playerVelocity = Vector3.zero;
             Rigidbody rb = npc.playerTransform.GetComponent<Rigidbody>();
-            
+
             if (rb != null) playerVelocity = rb.linearVelocity;
-            
+
             // Memorăm direcția pentru când îl pierdem din vedere
             lastMoveDirection = playerVelocity.normalized;
             lastKnownPosition = npc.playerTransform.position;
@@ -226,5 +237,150 @@ public class ChaseState : INPCState
             npc.Agent.speed = npc.data.walkSpeed;
             npc.Agent.stoppingDistance = 0.5f; // Resetăm la valoarea de patrulare
         }
+    }
+
+}
+
+public class InvestigateState : INPCState
+{
+    public NPCBase.NPCStateID StateID => NPCBase.NPCStateID.Investigate;
+    private Vector3 targetPosition;
+    private float waitTimer;
+
+    public void SetTarget(Vector3 pos) => targetPosition = pos;
+
+    // Metodă nouă pentru a schimba direcția din mers
+    public void RefreshTarget(NPCBase npc, Vector3 newPos)
+    {
+        targetPosition = newPos;
+        waitTimer = 0f; // Resetăm timpul de așteptare pentru noul zgomot
+        if (npc.Agent.isOnNavMesh)
+        {
+            npc.Agent.SetDestination(targetPosition);
+        }
+    }
+
+    public void EnterState(NPCBase npc)
+    {
+        waitTimer = 0f;
+        if (npc.Agent.isOnNavMesh)
+        {
+            npc.Agent.isStopped = false;
+            npc.Agent.SetDestination(targetPosition);
+        }
+    }
+
+    public void DoState(NPCBase npc)
+    {
+        if (npc.canSeePlayer) { npc.ToChase(); return; }
+
+        // Verificăm dacă a ajuns la zgomot
+        if (!npc.Agent.pathPending && npc.Agent.remainingDistance <= npc.Agent.stoppingDistance)
+        {
+            waitTimer += Time.deltaTime;
+            if (waitTimer >= 3f) // După 3 secunde de căutat, pleacă
+            {
+                npc.ToPatrol();
+            }
+        }
+    }
+
+    public void ExitState(NPCBase npc) { }
+}
+
+
+public class AttackState : INPCState
+{
+    public NPCBase.NPCStateID StateID => NPCBase.NPCStateID.Attack;
+
+    private bool isAttacking;
+
+    public void EnterState(NPCBase npc)
+    {
+        isAttacking = false;
+
+        if (npc.Agent.isOnNavMesh)
+            npc.Agent.isStopped = true;
+
+        StartAttack(npc);
+
+        Debug.Log("<color=red>[Attack] Enter</color>");
+    }
+
+    public void DoState(NPCBase npc)
+    {
+        RotateTowardsPlayer(npc);
+
+        float distanceToPlayer = Vector3.Distance(
+            npc.transform.position,
+            npc.playerTransform.position
+        );
+
+        // Dacă jucătorul a ieșit din rază → Chase
+        if (distanceToPlayer > npc.Agent.stoppingDistance + 1f)
+        {
+            npc.ToChase();
+            return;
+        }
+
+        // Dacă NU atacă → pornește din nou
+        if (!isAttacking)
+        {
+            StartAttack(npc);
+        }
+    }
+
+    public void ExitState(NPCBase npc)
+    {
+        if (npc.Agent.isOnNavMesh)
+            npc.Agent.isStopped = false;
+
+        Debug.Log("<color=red>[Attack] Exit</color>");
+    }
+
+    // ==========================
+    // Helpers
+    // ==========================
+
+    private void StartAttack(NPCBase npc)
+    {
+        if (npc.animator == null) return;
+
+        isAttacking = true;
+        npc.animator.ResetTrigger("Attack");
+        npc.animator.SetTrigger("Attack");
+    }
+
+    private void RotateTowardsPlayer(NPCBase npc)
+    {
+        Vector3 dir = npc.playerTransform.position - npc.transform.position;
+        dir.y = 0;
+
+        if (dir == Vector3.zero) return;
+
+        Quaternion targetRot = Quaternion.LookRotation(dir);
+        npc.transform.rotation = Quaternion.Slerp(
+            npc.transform.rotation,
+            targetRot,
+            Time.deltaTime * 10f
+        );
+    }
+
+    // ==========================
+    // ANIMATION EVENTS
+    // ==========================
+
+    // ⚠️ CHEMAT DIN ANIMAȚIE
+    public void OnAttackHit()
+    {
+        PlayerStats.Instance?.TakeDamage(1);
+        Debug.Log("<color=green>[Attack] Damage</color>");
+    }
+
+    // ⚠️ CHEMAT LA FINALUL ANIMAȚIEI
+    public void OnAttackEnd()
+    {
+        isAttacking = false;
+        Debug.Log("<color=yellow>[Attack] End</color>");
     }
 }
