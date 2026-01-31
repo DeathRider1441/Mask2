@@ -190,14 +190,14 @@ MonoBehaviour:
   defaultSpeed: 3.5
   patrolRoute:
   - point: {fileID: 967180234}
-    waitTime: 0
+    waitTime: 10
   - point: {fileID: 715491567}
-    waitTime: 0
+    waitTime: 10
   - point: {fileID: 1844865623}
-    waitTime: 0
+    waitTime: 10
   currentPatrolIndex: 0
   isForward: 1
-  animator: {fileID: 0}
+  animator: {fileID: 138932010}
   playSoundOnPointReached: 0
 --- !u!195 &138932009
 NavMeshAgent:
@@ -221,6 +221,11 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &138932010 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 37883e946a8196342a339f03090a9976, type: 3}
+  m_PrefabInstance: {fileID: 2041556772}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,15 +890,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 37883e946a8196342a339f03090a9976, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37883e946a8196342a339f03090a9976, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37883e946a8196342a339f03090a9976, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37883e946a8196342a339f03090a9976, type: 3}
       propertyPath: m_LocalPosition.x

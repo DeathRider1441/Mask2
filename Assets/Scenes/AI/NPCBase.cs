@@ -103,6 +103,7 @@ public abstract class NPCBase : Entity
 
         base.Update();
         currentState?.DoState(this);
+        Debug.Log($"{gameObject.name} este în starea: {CurrentStateID}");
 
         // Sync Animator
         if (animator != null)
