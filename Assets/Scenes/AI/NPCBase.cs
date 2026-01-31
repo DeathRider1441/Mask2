@@ -69,22 +69,29 @@ public abstract class NPCBase : Entity
 
     protected override void HandleDetectionLogic()
     {
-        if (canSeePlayer)
+        // Verificăm dacă masca e activă și funcțională
+        bool isInvisible = false;
+        if (MaskSystem.Instance != null)
+        {
+            isInvisible = MaskSystem.Instance.IsPlayerGhosted();
+        }
+
+        // Dacă are masca, inamicul nu îl vede (scade bara de detecție)
+        bool effectivelyCanSee = canSeePlayer && !isInvisible;
+
+        if (effectivelyCanSee)
             currentDetection += data.detectionSpeed * Time.deltaTime;
         else
             currentDetection -= data.coolDownSpeed * Time.deltaTime;
 
         currentDetection = Mathf.Clamp(currentDetection, 0, 100);
         
+        // Raportăm la ScreenColorController pentru roșul de pe margini
         if (ScreenColorController.Instance != null)
-        {
             ScreenColorController.Instance.ReportDetection(currentDetection);
-        }
 
-        // ADAUGĂ ACEASTĂ VERIFICARE:
-        // Trigerăm detecția DOAR dacă bara abia a ajuns la 100. 
-        // Dacă e deja 100, nu mai chemăm OnPlayerDetected() continuu.
-        if (currentDetection >= 100 && CurrentStateID != NPCBase.NPCStateID.Chase && CurrentStateID != NPCBase.NPCStateID.Attack)
+        // Verificăm dacă inamicul trebuie să treacă la atac/urmărire
+        if (currentDetection >= 100 && CurrentStateID != NPCStateID.Chase && CurrentStateID != NPCStateID.Attack)
         {
             OnPlayerDetected();
         }

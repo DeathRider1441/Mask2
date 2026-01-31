@@ -132,24 +132,25 @@ public class ScreenColorController : MonoBehaviour
         return currentIntensity;
     }
     
-    private void LateUpdate()
-    {
-        // Resetăm pentru cadrul următor
-        maxDetectionReportedThisFrame = 0f;
-    }
+    // private void LateUpdate()
+    // {
+    //     // Resetăm pentru cadrul următor
+    //     maxDetectionReportedThisFrame = 0f;
+    // }
 
     // Aceasta este funcția pe care o vor apela inamicii din HandleDetectionLogic
     public void ReportDetection(float level)
-    {
-        // Convertim 0-100 în 0-1
-        float normalizedLevel = level / 100f;
+{
+    float normalizedLevel = level / 100f;
+    
+    // Luăm valoarea raportată doar dacă este mai mare decât cea curentă
+    // Asta previne inamicii care nu te văd să "stingă" roșul produs de cel care te vede
+    maxDetectionReportedThisFrame = normalizedLevel;
+    
 
-        // Păstrăm doar valoarea cea mai mare
-        if (normalizedLevel > maxDetectionReportedThisFrame)
-        {
-            maxDetectionReportedThisFrame = normalizedLevel;
-        }
-    }
+    // Actualizăm ținta pentru ApplyColorTransition
+    // colorIntensity = maxDetectionReportedThisFrame;
+}
 }
 
  
