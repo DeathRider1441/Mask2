@@ -58,6 +58,7 @@ public class Entity : MonoBehaviour
         currentHealth -= amount;
         if (currentHealth <= 0) Die();
     }
+    
 
     protected virtual void Die()
     {
@@ -65,7 +66,7 @@ public class Entity : MonoBehaviour
         isDead = true;
 
         Debug.Log($"<color=black><b>{gameObject.name} a murit.</b></color>");
-        
+
         // Oprim AI-ul imediat la moarte
         if (agent != null)
         {
@@ -116,12 +117,18 @@ public class Entity : MonoBehaviour
 
         currentDetection = Mathf.Clamp(currentDetection, 0, 100);
 
-        if (currentDetection >= 100) OnPlayerDetected();
+        // ADAUGĂ ACEASTĂ VERIFICARE:
+        // Trigerăm detecția DOAR dacă bara abia a ajuns la 100. 
+        // Dacă e deja 100, nu mai chemăm OnPlayerDetected() continuu.
+        // if (currentDetection >= 100 && CurrentStateID != NPCBase.NPCStateID.Chase && CurrentStateID != NPCBase.NPCStateID.Attack) 
+        // {
+        //     OnPlayerDetected();
+        // }
     }
 
     protected virtual void OnPlayerDetected()
     {
-        Debug.Log("<color=red>TE-AM VĂZUT!</color>");
+        // Debug.Log("<color=red>TE-AM VĂZUT!</color>");
     }
 
     public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)

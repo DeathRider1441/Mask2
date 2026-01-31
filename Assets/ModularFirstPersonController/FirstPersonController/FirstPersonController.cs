@@ -502,7 +502,7 @@ public class FirstPersonController : MonoBehaviour
     {
         if(isWalking)
         {
-            // ... (Codul tău existent pentru calcul timer și mișcare joint)
+            // ... (Codul tău existent pentru calcul timer)
             if(isSprinting) timer += Time.deltaTime * (bobSpeed + sprintSpeed);
             else if (isCrouched) timer += Time.deltaTime * (bobSpeed * speedReduction);
             else timer += Time.deltaTime * bobSpeed;
@@ -513,13 +513,32 @@ public class FirstPersonController : MonoBehaviour
                 jointOriginalPos.z + Mathf.Sin(timer) * bobAmount.z
             );
 
-            // --- TRIGGER PASI ---
+            // --- TRIGGER PASI & ZGOMOT ---
+            // Când sinusul e jos (piciorul atinge pământul)
             if (Mathf.Sin(timer) < -0.9f)
             {
                 if (!stepSignalSent)
                 {
+                    // 1. AUDIO: Trimitem numele sunetului către SoundManager
                     string stepType = isSprinting ? "Step_Sprint" : (isCrouched ? "Step_Crouch" : "Step_Walk");
                     GameEvents.TriggerSound(stepType);
+
+                    // 2. AI: Trimitem semnalul de zgomot către Inamici
+                    // Aici calculăm raza în funcție de starea jucătorului
+                    float noiseRadius = 3f; // Default pentru mers
+
+                    if (isCrouched) 
+                    {
+                        noiseRadius = 0.5f; // Foarte mic, jumătate de metru (cum ai cerut)
+                    }
+                    else if (isSprinting)
+                    {
+                        noiseRadius = 10f; // Alergatul face zgomot mare
+                    }
+                    
+                    // Trimitem poziția curentă și raza calculată
+                    GameEvents.TriggerNoise(transform.position, noiseRadius);
+
                     stepSignalSent = true; 
                 }
             }
@@ -530,18 +549,16 @@ public class FirstPersonController : MonoBehaviour
         }
         else
         {
-            // --- ACEASTA ESTE ZONA DE STOP ---
-            if (timer > 0) // Verificăm dacă timer-ul era activ înainte de oprire
+            // --- ZONA DE STOP ---
+            if (timer > 0)
             {
-                // Oprim sunetele de pași. Trimitem semnalul generic sau unul specific.
                 GameEvents.TriggerStopSound("Step_Walk");
                 GameEvents.TriggerStopSound("Step_Sprint");
                 GameEvents.TriggerStopSound("Step_Crouch");
             }
 
-            timer = 0; // Resetăm timer-ul
+            timer = 0;
             
-            // Codul tău de Lerp pentru resetarea poziției joint-ului
             joint.localPosition = new Vector3(
                 Mathf.Lerp(joint.localPosition.x, jointOriginalPos.x, Time.deltaTime * bobSpeed), 
                 Mathf.Lerp(joint.localPosition.y, jointOriginalPos.y, Time.deltaTime * bobSpeed), 
