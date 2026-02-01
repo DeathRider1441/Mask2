@@ -20,7 +20,7 @@ public class NoiseMaker : MonoBehaviour
             hasHit = true;
 
             // Opțional: Distrugem obiectul după câteva secunde ca să nu aglomerăm scena
-            Destroy(gameObject, 5f);
+            Destroy(gameObject, 1f);
         }
     }
 }
