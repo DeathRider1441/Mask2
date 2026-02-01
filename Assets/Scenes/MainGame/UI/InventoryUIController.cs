@@ -6,6 +6,7 @@ public class InventoryUIController : MonoBehaviour
 {
     private VisualElement root;
     private VisualElement damageOverlay;
+    private VisualElement maskOverlay;
     
     // Referințe Sloturi (Containerele pătrate)
     private VisualElement potionSlot;
@@ -27,6 +28,7 @@ public class InventoryUIController : MonoBehaviour
         if (uiDocument == null) return;
 
         root = uiDocument.rootVisualElement;
+        maskOverlay = root.Q<VisualElement>("mask-overlay");
 
         gameOverPanel = root.Q<VisualElement>("GameOverPanel");
         GameEvents.OnPlayerDeath += ShowGameOver; // Abonează-te la evenimentul de moarte
@@ -45,6 +47,16 @@ public class InventoryUIController : MonoBehaviour
         }
 
         GameEvents.OnPlayerHit += HandlePlayerHit;
+    }
+
+    private void UpdateMaskEffect()
+    {
+        if (MaskSystem.Instance != null && maskOverlay != null)
+        {
+            // Afișăm overlay-ul doar dacă jucătorul este efectiv "ghosted"
+            bool ghosted = MaskSystem.Instance.IsPlayerGhosted();
+            maskOverlay.style.display = ghosted ? DisplayStyle.Flex : DisplayStyle.None;
+        }
     }
 
     void OnDisable()
@@ -129,6 +141,7 @@ public class InventoryUIController : MonoBehaviour
     void Update()
     {
         UpdateInventory();
+        UpdateMaskEffect();
 
         if (isWaitingForRestart && Input.anyKeyDown)
         {

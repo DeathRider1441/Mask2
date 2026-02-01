@@ -197,7 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickable
   type: 0
   amount: 1
-  pickUpSound: PickUp_Item
+  pickUpSound: PickUp_Glass
 --- !u!65 &7102578744675664200
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -50,6 +50,7 @@ public class PlayerStats : MonoBehaviour
         if (currentHealth <= 0)
         {
             GameEvents.TriggerPlayerHit(currentHealth);
+            GameEvents.TriggerSound(damageSoundName);
             Die();
         }
         else
