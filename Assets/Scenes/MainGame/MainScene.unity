@@ -17640,6 +17640,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192213381}
   m_Mesh: {fileID: 4300004, guid: fd75e63c14c4540438372a6844af68b6, type: 3}
+--- !u!1 &193883587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100014, guid: 7bade91c709d500478a3cdaa697994d7, type: 3}
+  m_PrefabInstance: {fileID: 225385986}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &194155835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18065,48 +18070,80 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2138746899}
     m_Modifications:
+    - target: {fileID: 184474, guid: 7bade91c709d500478a3cdaa697994d7, type: 3}
+      propertyPath: m_TagString
+      value: Ladder
+      objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 7bade91c709d500478a3cdaa697994d7, type: 3}
       propertyPath: m_RootOrder
       value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 7bade91c709d500478a3cdaa697994d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.8690004
+      value: -10.869
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 7bade91c709d500478a3cdaa697994d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.18400002
+      value: 7.184
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 7bade91c709d500478a3cdaa697994d7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -43.0880013
+      value: -43.088
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 7bade91c709d500478a3cdaa697994d7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: .999759614
+      value: 0.9997596
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 7bade91c709d500478a3cdaa697994d7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -.0217696093
+      value: -0.02176961
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 7bade91c709d500478a3cdaa697994d7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -.0026173708
+      value: -0.0026173708
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 7bade91c709d500478a3cdaa697994d7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -5.69928452e-05
+      value: -0.000056992845
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6436504, guid: 7bade91c709d500478a3cdaa697994d7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100014, guid: 7bade91c709d500478a3cdaa697994d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 225385988}
+    - targetCorrespondingSourceObject: {fileID: 184474, guid: 7bade91c709d500478a3cdaa697994d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 507412466}
   m_SourcePrefab: {fileID: 100100000, guid: 7bade91c709d500478a3cdaa697994d7, type: 3}
 --- !u!4 &225385987 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400014, guid: 7bade91c709d500478a3cdaa697994d7, type: 3}
   m_PrefabInstance: {fileID: 225385986}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &225385988
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193883587}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 4.757021, z: 0.31636035}
+  m_Center: {x: 4.0946673e-11, y: 1.8785182, z: -0.3418195}
 --- !u!1001 &233584331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31138,6 +31175,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8766024595948897486, guid: 51d5439ed8b23c48f8996008524debf7, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 464907889}
+    - targetCorrespondingSourceObject: {fileID: 8766024595948897486, guid: 51d5439ed8b23c48f8996008524debf7, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 464907879}
   m_SourcePrefab: {fileID: 100100000, guid: 51d5439ed8b23c48f8996008524debf7, type: 3}
 --- !u!1 &464907878 stripped
@@ -31169,6 +31209,19 @@ MonoBehaviour:
   cooldownColor: {r: 1, g: 0, b: 0, a: 1}
   isMaskOn: 0
   isOnCooldown: 0
+--- !u!114 &464907889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464907878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2879d6b268e566a855b2334b25895e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerClimbing
+  climbSpeed: 5
 --- !u!1001 &466340623
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31908,6 +31961,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 91d652779ec7140488b6b8e360497937, type: 3}
   m_PrefabInstance: {fileID: 497285499}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &507412461 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 184474, guid: 7bade91c709d500478a3cdaa697994d7, type: 3}
+  m_PrefabInstance: {fileID: 225385986}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &507412466
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507412461}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.13002777, y: 9.087656, z: 1.8929474}
+  m_Center: {x: -0.00015899533, y: 2.7111158, z: 0.3175012}
 --- !u!4 &508061925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 10bc6d9fae2413142a4f49825af0487a, type: 3}

@@ -533,6 +533,7 @@ GameObject:
   - component: {fileID: 503587495941858318}
   - component: {fileID: -3630133681294876427}
   - component: {fileID: 4049583380057258822}
+  - component: {fileID: -2251412158309264779}
   m_Layer: 0
   m_Name: FirstPersonController
   m_TagString: Player
@@ -770,3 +771,16 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 1
+--- !u!114 &-2251412158309264779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766024595948897486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2879d6b268e566a855b2334b25895e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerClimbing
+  climbSpeed: 5

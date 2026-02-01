@@ -1,50 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
-    <ui:VisualElement name="screen-container" style="flex-grow: 1; padding: 20px; pointer-events: none;">
-                <ui:VisualElement name="damage-overlay" style="
-            position: absolute; 
-            top: 0; left: 0; right: 0; bottom: 0; 
-            background-color: rgba(255, 0, 0, 0); 
-            pointer-events: none;" />
-
-        <ui:Label name="interact-prompt" text="Press [E]" 
-        style="position: absolute; 
-            top: 55%; 
-            align-self: center; 
-            color: rgb(255, 255, 255); 
-            -unity-font-style: bold; 
-            font-size: 28px; 
-            -unity-text-outline-width: 1px; 
-            -unity-text-outline-color: rgb(0, 0, 0); 
-            display: none;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);" />
-
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="screen-container" style="flex-grow: 1; padding: 20px; pointer-events: none; justify-content: space-between;">
+        <ui:VisualElement name="damage-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(255, 0, 0, 0); pointer-events: none;" />
         <ui:VisualElement name="health-container" style="flex-direction: row; align-items: flex-start; justify-content: flex-start;">
             <ui:VisualElement name="heart-1" style="width: 40px; height: 40px; background-color: rgba(255, 0, 0, 0.8); margin-right: 5px; border-radius: 5px;" />
             <ui:VisualElement name="heart-2" style="width: 40px; height: 40px; background-color: rgba(255, 0, 0, 0.8); margin-right: 5px; border-radius: 5px;" />
             <ui:VisualElement name="heart-3" style="width: 40px; height: 40px; background-color: rgba(255, 0, 0, 0.8); margin-right: 5px; border-radius: 5px;" />
         </ui:VisualElement>
-
-        <ui:VisualElement style="flex-grow: 1;" />
-
-        <ui:VisualElement name="inventory-wrapper" style="align-items: center;">
-            <ui:VisualElement name="inventory-bar" style="flex-direction: row; background-color: rgba(26, 26, 26, 0.8); padding: 10px; border-radius: 15px; border-width: 2px; border-color: rgb(77, 77, 77); pointer-events: auto;">
-                
+        <ui:Label name="interact-prompt" text="Press [E]" style="position: absolute; top: 55%; left: 0; right: 0; align-self: center; -unity-text-align: middle-center; color: white; -unity-font-style: bold; font-size: 28px; -unity-text-outline-width: 1px; -unity-text-outline-color: black; display: none;" />
+        <ui:VisualElement name="inventory-wrapper" style="align-items: center; margin-bottom: 20px;">
+            <ui:VisualElement name="inventory-bar" style="flex-direction: row; background-color: rgba(26, 26, 26, 0.8); padding: 10px; border-radius: 15px; border-width: 2px; border-color: rgb(77, 77, 77); pointer-events: none;">
                 <ui:VisualElement name="slot-potions" style="width: 70px; height: 70px; background-color: rgba(40, 40, 40, 0.9); margin: 5px; border-radius: 10px; border-width: 1px; border-color: rgb(100, 100, 100); justify-content: center; align-items: center;">
                     <ui:VisualElement name="icon-potions" style="width: 80%; height: 80%;" />
-                    <ui:Label name="count-potions" text="x0" style="position: absolute; bottom: 0; right: 5px; color: white; font-size: 14px; -unity-font-style: bold;" />
+                    <ui:Label name="count-potions" text="x0" style="position: absolute; bottom: 2; right: 5px; color: white; font-size: 14px; -unity-font-style: bold;" />
                 </ui:VisualElement>
-
                 <ui:VisualElement name="slot-key" style="width: 70px; height: 70px; background-color: rgba(40, 40, 40, 0.9); margin: 5px; border-radius: 10px; border-width: 1px; border-color: rgb(100, 100, 100); justify-content: center; align-items: center;">
-                    <ui:VisualElement name="icon-key" style="width: 80%; height: 80%;" />
+                    <ui:VisualElement name="icon-key" style="width: 80%; height: 80%; background-image: url(&quot;project://database/Assets/Scenes/MainGame/Inventory/key.png?fileID=2800000&amp;guid=ed62fb911edc6b8f185b6f18a2ba041a&amp;type=3#key&quot;);" />
                 </ui:VisualElement>
-
                 <ui:VisualElement name="slot-mask" style="width: 70px; height: 70px; background-color: rgba(40, 40, 40, 0.9); margin: 5px; border-radius: 10px; border-width: 1px; border-color: rgb(100, 100, 100); justify-content: center; align-items: center;">
                     <ui:VisualElement name="icon-mask" style="width: 80%; height: 80%;" />
                 </ui:VisualElement>
-
             </ui:VisualElement>
         </ui:VisualElement>
-
     </ui:VisualElement>
 </ui:UXML>

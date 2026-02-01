@@ -7,12 +7,14 @@ public class InventoryUIController : MonoBehaviour
     private VisualElement root;
     private VisualElement damageOverlay;
     
-    // Elemente Inventar
-    private VisualElement potionIcon;
-    private VisualElement keyIcon;
+    // Referințe Sloturi (Containerele pătrate)
+    private VisualElement potionSlot;
+    private VisualElement keySlot; 
+    
+    // Referințe Texte
     private Label potionLabel;
 
-    // Elemente Viață
+    // Referințe Viață
     private VisualElement[] hearts = new VisualElement[3];
     private Coroutine damageFadeCoroutine;
 
@@ -23,31 +25,27 @@ public class InventoryUIController : MonoBehaviour
 
         root = uiDocument.rootVisualElement;
 
-        // Referințe Inventar
-        potionIcon = root.Q<VisualElement>("icon-potions");
-        keyIcon = root.Q<VisualElement>("icon-key");
+        // 1. Luăm referința la SLOTURILE întregi (pătratul gri), nu doar la iconiță
+        // Numele trebuie să fie exact ca în UXML
+        potionSlot = root.Q<VisualElement>("slot-potions");
+        keySlot = root.Q<VisualElement>("slot-key");
+        
         potionLabel = root.Q<Label>("count-potions");
-
-        // Referință Overlay Damage
         damageOverlay = root.Q<VisualElement>("damage-overlay");
 
-        // Referințe Viață
         for (int i = 0; i < 3; i++)
         {
             hearts[i] = root.Q<VisualElement>($"heart-{i + 1}");
         }
 
-        // ABONARE LA EVENIMENTE
         GameEvents.OnPlayerHit += HandlePlayerHit;
     }
 
     void OnDisable()
     {
-        // DEZABONARE
         GameEvents.OnPlayerHit -= HandlePlayerHit;
     }
 
-    // Această metodă rulează DOAR când jucătorul ia damage
     private void HandlePlayerHit(int currentHealth)
     {
         UpdateHealthUI(currentHealth);
@@ -59,18 +57,15 @@ public class InventoryUIController : MonoBehaviour
         for (int i = 0; i < hearts.Length; i++)
         {
             if (hearts[i] == null) continue;
-
             if (i < health)
             {
                 hearts[i].style.opacity = 1f;
                 hearts[i].style.backgroundColor = new StyleColor(new Color(1f, 0f, 0f, 0.8f));
-                hearts[i].style.scale = new StyleScale(new Scale(Vector2.one));
             }
             else
             {
                 hearts[i].style.opacity = 0.3f;
                 hearts[i].style.backgroundColor = new StyleColor(Color.gray);
-                hearts[i].style.scale = new StyleScale(new Scale(new Vector3(0.8f, 0.8f, 1f)));
             }
         }
     }
@@ -78,26 +73,22 @@ public class InventoryUIController : MonoBehaviour
     private void TriggerDamageFlash()
     {
         if (damageOverlay == null) return;
-
         if (damageFadeCoroutine != null) StopCoroutine(damageFadeCoroutine);
         damageFadeCoroutine = StartCoroutine(FadeDamageOverlay());
     }
 
     private IEnumerator FadeDamageOverlay()
     {
-        float intensity = 0.5f; // Cât de roșu să fie ecranul la început
-        
+        float intensity = 0.5f;
         while (intensity > 0)
         {
-            intensity -= Time.deltaTime * 1.5f; // Viteza cu care dispare roșul
+            intensity -= Time.deltaTime * 1.5f;
             damageOverlay.style.backgroundColor = new StyleColor(new Color(1f, 0f, 0f, intensity));
             yield return null;
         }
-
         damageOverlay.style.backgroundColor = new StyleColor(new Color(1f, 0f, 0f, 0f));
     }
 
-    // Inventarul îl lăsăm momentan în Update dacă nu ai făcut semnal și pentru el
     void Update()
     {
         UpdateInventory();
@@ -105,18 +96,34 @@ public class InventoryUIController : MonoBehaviour
 
     private void UpdateInventory()
     {
-        if (SimpleInventoryManager.Instance != null && potionIcon != null)
+        if (SimpleInventoryManager.Instance == null) return;
+
+        // --- POTIUNI ---
+        if (potionSlot != null)
         {
             bool hasPotions = SimpleInventoryManager.Instance.potionCount > 0;
-            potionIcon.style.display = hasPotions ? DisplayStyle.Flex : DisplayStyle.None;
             
-            if (potionLabel != null)
-            {
-                potionLabel.text = "x" + SimpleInventoryManager.Instance.potionCount;
-                potionLabel.style.display = hasPotions ? DisplayStyle.Flex : DisplayStyle.None;
-            }
+            // Folosim VISIBILITY: Slotul rămâne acolo, dar devine invizibil
+            // Astfel nu se decalează celelalte elemente
+            potionSlot.style.visibility = hasPotions ? Visibility.Visible : Visibility.Hidden;
 
-            keyIcon.style.display = SimpleInventoryManager.Instance.hasKey ? DisplayStyle.Flex : DisplayStyle.None;
+            if (potionLabel != null)
+                potionLabel.text = "x" + SimpleInventoryManager.Instance.potionCount;
+        }
+
+        // --- CHEIE ---
+        if (keySlot != null)
+        {
+            bool hasKey = SimpleInventoryManager.Instance.hasKey;
+
+            // FIXUL: Folosim Visibility în loc de Display
+            // Visibility.Hidden = E invizibil, dar Ocupă spațiu (Slotul 3 nu sare în locul lui)
+            // Visibility.Visible = Se vede normal
+            keySlot.style.visibility = hasKey ? Visibility.Visible : Visibility.Hidden;
+            
+            // Alternativă: Dacă vrei să vezi slotul gol (gri) și doar iconița să apară/dispară,
+            // trebuie să cauți copilul "icon-key" și să îi schimbi lui opacity.
+            // Dar momentan, codul acesta repară "săritul" sloturilor.
         }
     }
 }

@@ -48,5 +48,5 @@ MonoBehaviour:
   potionIcon: {fileID: 0}
   potionText: {fileID: 0}
   hasKey: 0
-  keyIcon: {fileID: 0}
+  keyIcon: {fileID: 1553405102129483257, guid: e0fbd67d096d83afe9c47e40ac26f91a, type: 3}
   maskIcon: {fileID: 0}
