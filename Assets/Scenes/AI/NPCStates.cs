@@ -11,6 +11,7 @@ public class PatrolState : INPCState
     public void EnterState(NPCBase npc)
     {
         if (npc.Agent.isOnNavMesh) npc.Agent.isStopped = false;
+        npc.Agent.stoppingDistance = 1.5f;
         
         // Verificăm dacă avem unde să mergem
         if (npc.patrolRoute.Count == 0)
@@ -43,7 +44,16 @@ public class PatrolState : INPCState
         Transform targetTransform = npc.patrolRoute[npc.currentPatrolIndex].point;
         if (targetTransform != null)
         {
-            npc.Agent.SetDestination(targetTransform.position);
+            // Căutăm cel mai apropiat punct valid pe NavMesh într-o rază de 2 metri
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(targetTransform.position, out hit, 2.0f, NavMesh.AllAreas))
+            {
+                npc.Agent.SetDestination(hit.position);
+            }
+            else
+            {
+                Debug.LogError($"Punctul de patrulă {npc.currentPatrolIndex} este prea departe de NavMesh!");
+            }
         }
     }
 

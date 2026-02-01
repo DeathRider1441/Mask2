@@ -77,15 +77,17 @@ public class Entity : MonoBehaviour
 
     private void CheckDetection()
     {
-        // Dacă playerul nu este nici măcar în trigger-ul conului, nu mai facem calcule
         if (!isPlayerInTrigger)
         {
             canSeePlayer = false;
             return;
         }
 
-        // Dacă e în trigger, verificăm prin Raycast dacă sunt obstacole (ziduri)
-        Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
+        // Calculăm direcția către jucător
+        // Adăugăm un mic offset pe Y (Vector3.up * 0.5f) pentru a ținti corpul, nu picioarele
+        Vector3 targetPos = playerTransform.position + Vector3.up * 0.5f;
+        Vector3 directionToPlayer = (targetPos - (transform.position + Vector3.up)).normalized;
+        
         float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
 
         RaycastHit hit;
@@ -95,6 +97,7 @@ public class Entity : MonoBehaviour
         {
             if (hit.collider.CompareTag("Player"))
             {
+                // Verificăm dacă jucătorul este crouch pentru a reduce viteza de detecție (Opțional)
                 canSeePlayer = true;
                 return;
             }

@@ -69,28 +69,35 @@ public abstract class NPCBase : Entity
 
     protected override void HandleDetectionLogic()
     {
-        // Verificăm dacă masca e activă și funcțională
-        bool isInvisible = false;
-        if (MaskSystem.Instance != null)
-        {
-            isInvisible = MaskSystem.Instance.IsPlayerGhosted();
-        }
+        if (CurrentStateID == NPCStateID.Attack) { currentDetection = 100f; return; }
 
-        // Dacă are masca, inamicul nu îl vede (scade bara de detecție)
+        bool isInvisible = MaskSystem.Instance != null && MaskSystem.Instance.IsPlayerGhosted();
         bool effectivelyCanSee = canSeePlayer && !isInvisible;
 
         if (effectivelyCanSee)
-            currentDetection += data.detectionSpeed * Time.deltaTime;
+        {
+            // VERIFICARE: Dacă jucătorul este crouch, detecția crește de 2 ori mai greu
+            float detectionMultiplier = 1.0f;
+            
+            // Verificăm dacă controllerul de FPS are variabila isCrouched activă
+            var controller = playerTransform.GetComponent<FirstPersonController>();
+            if (controller != null && controller.transform.localScale.y < 0.9f) // Verificăm înălțimea
+            {
+                detectionMultiplier = 0.5f; // Inamicul are nevoie de mai mult timp să te recunoască
+            }
+
+            currentDetection += data.detectionSpeed * detectionMultiplier * Time.deltaTime;
+        }
         else
+        {
             currentDetection -= data.coolDownSpeed * Time.deltaTime;
+        }
 
         currentDetection = Mathf.Clamp(currentDetection, 0, 100);
         
-        // Raportăm la ScreenColorController pentru roșul de pe margini
         if (ScreenColorController.Instance != null)
             ScreenColorController.Instance.ReportDetection(currentDetection);
 
-        // Verificăm dacă inamicul trebuie să treacă la atac/urmărire
         if (currentDetection >= 100 && CurrentStateID != NPCStateID.Chase && CurrentStateID != NPCStateID.Attack)
         {
             OnPlayerDetected();

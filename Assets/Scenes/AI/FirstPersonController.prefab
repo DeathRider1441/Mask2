@@ -531,6 +531,7 @@ GameObject:
   - component: {fileID: 6843843151428381469}
   - component: {fileID: 6422241235695469121}
   - component: {fileID: 503587495941858318}
+  - component: {fileID: -3630133681294876427}
   m_Layer: 0
   m_Name: FirstPersonController
   m_TagString: Player
@@ -733,3 +734,19 @@ MonoBehaviour:
   throwPoint: {fileID: 4239304296495316600}
   throwForce: 15
   throwKey: 103
+--- !u!114 &-3630133681294876427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766024595948897486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0989bce52cb50830d88cf64b94cde112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  maxHealth: 3
+  currentHealth: 0
+  damageSoundName: PlayerDamage
+  deathSoundName: PlayerDeath

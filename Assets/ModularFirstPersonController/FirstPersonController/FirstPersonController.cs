@@ -529,7 +529,7 @@ public class FirstPersonController : MonoBehaviour
 
                     if (isCrouched) 
                     {
-                        noiseRadius = 0.5f; // Foarte mic, jumătate de metru (cum ai cerut)
+                        noiseRadius = 1.0f; // Foarte mic, jumătate de metru (cum ai cerut)
                     }
                     else if (isSprinting)
                     {

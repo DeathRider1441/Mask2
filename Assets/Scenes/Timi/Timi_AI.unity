@@ -174,7 +174,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8766024595948897486, guid: 51d5439ed8b23c48f8996008524debf7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1147618985}
   m_SourcePrefab: {fileID: 100100000, guid: 51d5439ed8b23c48f8996008524debf7, type: 3}
 --- !u!1 &705507993
 GameObject:
@@ -480,6 +483,27 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d27f9d707c3085629b2c767e489170a9, type: 3}
+--- !u!1 &1147618977 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8766024595948897486, guid: 51d5439ed8b23c48f8996008524debf7, type: 3}
+  m_PrefabInstance: {fileID: 58142809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1147618985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147618977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0989bce52cb50830d88cf64b94cde112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  maxHealth: 3
+  currentHealth: 0
+  damageSoundName: PlayerDamage
+  deathSoundName: PlayerDeath
 --- !u!1 &1289839120
 GameObject:
   m_ObjectHideFlags: 0
