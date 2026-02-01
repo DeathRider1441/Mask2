@@ -11,6 +11,8 @@ public static class GameEvents
     // Evenimente noi pentru starea jucătorului
     public static event Action OnPlayerDeath;
     public static event Action<int> OnPlayerHit; // Trimitem viața rămasă ca parametru
+    public static System.Action OnLevelWin;
+    public static void TriggerLevelWin() => OnLevelWin?.Invoke();
 
     // ... restul evenimentelor tale (OnPlaySound, etc.) ...
 

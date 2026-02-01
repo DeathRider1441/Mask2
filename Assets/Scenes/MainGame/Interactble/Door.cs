@@ -34,11 +34,20 @@ public class Door : MonoBehaviour, IInteractable
 
     private void OpenDoor()
     {
-        Debug.Log("Door opened!");
+        Debug.Log("Victory! Level completed.");
         GameEvents.TriggerSound(openSound);
+        
+        // Trimitem semnalul de win
+        GameEvents.TriggerLevelWin();
 
-        // Putem distruge obiectul sau doar să îl dezactivăm
-        // Dezactivarea e mai bună dacă vrei să o refolosești sau să o închizi ulterior
+        // Dezactivăm controlul jucătorului (opțional, dar recomandat)
+        if (PlayerStats.Instance != null)
+        {
+            // Poți folosi aceeași logică de blocare a mișcării ca la Die()
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
         gameObject.SetActive(false); 
     }
 }

@@ -7,11 +7,11 @@ public class InventoryUIController : MonoBehaviour
     private VisualElement root;
     private VisualElement damageOverlay;
     private VisualElement maskOverlay;
-    
+
     // Referințe Sloturi (Containerele pătrate)
     private VisualElement potionSlot;
-    private VisualElement keySlot; 
-    
+    private VisualElement keySlot;
+
     // Referințe Texte
     private Label potionLabel;
 
@@ -22,13 +22,24 @@ public class InventoryUIController : MonoBehaviour
     private VisualElement gameOverPanel;
     private bool isWaitingForRestart = false;
 
+    private VisualElement winPanel;
+    private bool isWaitingForWinRestart = false;
+
+
+
+
     void OnEnable()
     {
         var uiDocument = GetComponent<UIDocument>();
         if (uiDocument == null) return;
 
+
         root = uiDocument.rootVisualElement;
         maskOverlay = root.Q<VisualElement>("mask-overlay");
+
+
+        winPanel = root.Q<VisualElement>("WinPanel");
+        GameEvents.OnLevelWin += ShowWinScreen; // Trebuie să adaugi acest event în GameEvents
 
         gameOverPanel = root.Q<VisualElement>("GameOverPanel");
         GameEvents.OnPlayerDeath += ShowGameOver; // Abonează-te la evenimentul de moarte
@@ -37,7 +48,7 @@ public class InventoryUIController : MonoBehaviour
         // Numele trebuie să fie exact ca în UXML
         potionSlot = root.Q<VisualElement>("slot-potions");
         keySlot = root.Q<VisualElement>("slot-key");
-        
+
         potionLabel = root.Q<Label>("count-potions");
         damageOverlay = root.Q<VisualElement>("damage-overlay");
 
@@ -64,12 +75,15 @@ public class InventoryUIController : MonoBehaviour
         // Trebuie să te dezabonezi de la TOATE evenimentele aici
         GameEvents.OnPlayerHit -= HandlePlayerHit;
         GameEvents.OnPlayerDeath -= ShowGameOver; // ASIGURĂ-TE CĂ AI LINIA ASTA!
+        GameEvents.OnLevelWin -= ShowWinScreen;
     }
+
+
 
     private void ShowGameOver()
     {
         if (gameOverPanel == null) return;
-        
+
         gameOverPanel.style.display = DisplayStyle.Flex;
         StartCoroutine(FadeGameOverIn());
     }
@@ -78,7 +92,7 @@ public class InventoryUIController : MonoBehaviour
     {
         // 1. Ne asigurăm că panoul e vizibil ca structură, dar complet transparent
         gameOverPanel.style.display = DisplayStyle.Flex;
-        gameOverPanel.style.opacity = 0f; 
+        gameOverPanel.style.opacity = 0f;
 
         float alpha = 0;
         while (alpha < 1f)
@@ -90,7 +104,7 @@ public class InventoryUIController : MonoBehaviour
 
             yield return null;
         }
-        
+
         gameOverPanel.style.opacity = 1f;
         isWaitingForRestart = true;
     }
@@ -147,6 +161,11 @@ public class InventoryUIController : MonoBehaviour
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Menu"); // Pune numele scenei tale de meniu
         }
+        // În Update(), adaugă verificarea pentru restart:
+        if (isWaitingForWinRestart && Input.GetMouseButtonDown(0))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+        }
     }
 
     private void UpdateInventory()
@@ -157,7 +176,7 @@ public class InventoryUIController : MonoBehaviour
         if (potionSlot != null)
         {
             bool hasPotions = SimpleInventoryManager.Instance.potionCount > 0;
-            
+
             // Folosim VISIBILITY: Slotul rămâne acolo, dar devine invizibil
             // Astfel nu se decalează celelalte elemente
             potionSlot.style.visibility = hasPotions ? Visibility.Visible : Visibility.Hidden;
@@ -175,10 +194,33 @@ public class InventoryUIController : MonoBehaviour
             // Visibility.Hidden = E invizibil, dar Ocupă spațiu (Slotul 3 nu sare în locul lui)
             // Visibility.Visible = Se vede normal
             keySlot.style.visibility = hasKey ? Visibility.Visible : Visibility.Hidden;
-            
+
             // Alternativă: Dacă vrei să vezi slotul gol (gri) și doar iconița să apară/dispară,
             // trebuie să cauți copilul "icon-key" și să îi schimbi lui opacity.
             // Dar momentan, codul acesta repară "săritul" sloturilor.
         }
     }
+
+    private void ShowWinScreen()
+    {
+        if (winPanel == null) return;
+        winPanel.style.display = DisplayStyle.Flex;
+        StartCoroutine(FadeWinIn());
+    }
+
+    private IEnumerator FadeWinIn()
+    {
+        float alpha = 0;
+        while (alpha < 1f)
+        {
+            alpha += Time.deltaTime * 0.5f;
+            winPanel.style.backgroundColor = new StyleColor(new Color(0, 0.1f, 0, alpha)); // Fundal ușor verzui/negru
+            winPanel.style.opacity = alpha;
+            yield return null;
+        }
+        isWaitingForWinRestart = true;
+    }
+
+    
+    
 }
