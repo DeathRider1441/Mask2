@@ -6,6 +6,10 @@
             <ui:VisualElement name="heart-2" style="width: 40px; height: 40px; background-color: rgba(255, 0, 0, 0.8); margin-right: 5px; border-radius: 5px;" />
             <ui:VisualElement name="heart-3" style="width: 40px; height: 40px; background-color: rgba(255, 0, 0, 0.8); margin-right: 5px; border-radius: 5px;" />
         </ui:VisualElement>
+        <ui:VisualElement name="GameOverPanel" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(84, 84, 84, 0); justify-content: center; align-items: center; display: none; background-image: url(&quot;project://database/Assets/Scenes/Timi/UI/Game_OverBackgound.png?fileID=2800000&amp;guid=513787d506de2134f9c74c7af12ebfde&amp;type=3#Game_OverBackgound&quot;);">
+            <ui:Label text="YOU DIED" style="font-size: 80px; color: red; -unity-font-style: bold; margin-bottom: 50px;" />
+            <ui:Label text="Press [ANY KEY] to return to Menu" style="font-size: 24px; color: white;" />
+        </ui:VisualElement>
         <ui:Label name="interact-prompt" text="Press [E]" style="position: absolute; top: 55%; left: 0; right: 0; align-self: center; -unity-text-align: middle-center; color: white; -unity-font-style: bold; font-size: 28px; -unity-text-outline-width: 1px; -unity-text-outline-color: black; display: none;" />
         <ui:VisualElement name="inventory-wrapper" style="align-items: center; margin-bottom: 20px;">
             <ui:VisualElement name="inventory-bar" style="flex-direction: row; background-color: rgba(26, 26, 26, 0.8); padding: 10px; border-radius: 15px; border-width: 2px; border-color: rgb(77, 77, 77); pointer-events: none;">

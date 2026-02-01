@@ -18,12 +18,18 @@ public class InventoryUIController : MonoBehaviour
     private VisualElement[] hearts = new VisualElement[3];
     private Coroutine damageFadeCoroutine;
 
+    private VisualElement gameOverPanel;
+    private bool isWaitingForRestart = false;
+
     void OnEnable()
     {
         var uiDocument = GetComponent<UIDocument>();
         if (uiDocument == null) return;
 
         root = uiDocument.rootVisualElement;
+
+        gameOverPanel = root.Q<VisualElement>("GameOverPanel");
+        GameEvents.OnPlayerDeath += ShowGameOver; // Abonează-te la evenimentul de moarte
 
         // 1. Luăm referința la SLOTURILE întregi (pătratul gri), nu doar la iconiță
         // Numele trebuie să fie exact ca în UXML
@@ -43,7 +49,38 @@ public class InventoryUIController : MonoBehaviour
 
     void OnDisable()
     {
+        // Trebuie să te dezabonezi de la TOATE evenimentele aici
         GameEvents.OnPlayerHit -= HandlePlayerHit;
+        GameEvents.OnPlayerDeath -= ShowGameOver; // ASIGURĂ-TE CĂ AI LINIA ASTA!
+    }
+
+    private void ShowGameOver()
+    {
+        if (gameOverPanel == null) return;
+        
+        gameOverPanel.style.display = DisplayStyle.Flex;
+        StartCoroutine(FadeGameOverIn());
+    }
+
+    private IEnumerator FadeGameOverIn()
+    {
+        // 1. Ne asigurăm că panoul e vizibil ca structură, dar complet transparent
+        gameOverPanel.style.display = DisplayStyle.Flex;
+        gameOverPanel.style.opacity = 0f; 
+
+        float alpha = 0;
+        while (alpha < 1f)
+        {
+            alpha += Time.deltaTime * 0.5f; // Viteza de fade
+            gameOverPanel.style.scale = new StyleScale(new Scale(new Vector3(1f + (alpha * 0.1f), 1f + (alpha * 0.1f), 1f)));
+            // Modificăm opacity pentru TOT panoul (fundal + text + imagine)
+            gameOverPanel.style.opacity = alpha;
+
+            yield return null;
+        }
+        
+        gameOverPanel.style.opacity = 1f;
+        isWaitingForRestart = true;
     }
 
     private void HandlePlayerHit(int currentHealth)
@@ -92,6 +129,11 @@ public class InventoryUIController : MonoBehaviour
     void Update()
     {
         UpdateInventory();
+
+        if (isWaitingForRestart && Input.anyKeyDown)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu"); // Pune numele scenei tale de meniu
+        }
     }
 
     private void UpdateInventory()
