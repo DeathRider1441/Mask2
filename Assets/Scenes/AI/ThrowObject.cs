@@ -50,30 +50,30 @@ public class ThrowObject : MonoBehaviour
 
     void ExecuteThrow()
     {
-        if (prefabToThrow == null)
-        {
-            Debug.LogError("[Throw] PrefabToThrow nu este asignat in Inspector!");
-            return;
-        }
-        if (throwPoint == null)
-        {
-            Debug.LogError("[Throw] ThrowPoint nu este asignat in Inspector!");
-            return;
-        }
+        if (prefabToThrow == null) { Debug.LogError("Prefab lipsa!"); return; }
 
-        GameObject obj = Instantiate(prefabToThrow, throwPoint.position, throwPoint.rotation);
-        Debug.Log($"[Throw] Obiect instantiat: {obj.name}");
+        // 1. Gasim camera principala
+        Camera mainCam = Camera.main;
+        if (mainCam == null) { Debug.LogError("Nu am gasit Camera.main!"); return; }
+
+        // 2. Calculam pozitia de start: centrul camerei + un mic offset in fata
+        // Asta previne coliziunea cu jucatorul
+        Vector3 spawnPos = mainCam.transform.position + (mainCam.transform.forward * 0.8f); 
+        
+        // 3. Instantiem obiectul
+        GameObject obj = Instantiate(prefabToThrow, spawnPos, mainCam.transform.rotation);
         
         Rigidbody rb = obj.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            rb.AddForce(throwPoint.forward * throwForce, ForceMode.Impulse);
+            // 4. Forta merge DIRECT in fata camerei
+            // Poti adauga si o mica forta in sus (up * 2f) daca vrei o traiectorie mai realista
+            Vector3 throwDir = mainCam.transform.forward; 
+            
+            rb.AddForce(throwDir * throwForce, ForceMode.Impulse);
+            
+            // Rotatie aleatorie pentru realism
             rb.AddTorque(Random.insideUnitSphere * 5f, ForceMode.Impulse);
-            Debug.Log("[Throw] Forta fizica a fost aplicata.");
-        }
-        else
-        {
-            Debug.LogError($"[Throw] Prefab-ul {obj.name} NU are o componenta Rigidbody!");
         }
 
         GameEvents.TriggerSound("Throw_Item");
