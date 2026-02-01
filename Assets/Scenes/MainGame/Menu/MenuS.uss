@@ -1,0 +1,18 @@
+/* Stilul de bază pentru butoane */
+.menu-button {
+    transition-duration: 0.2s; /* Face tranziția fină */
+    transition-property: scale, background-color;
+}
+
+/* Efectul de Hover (mouse peste buton) */
+.menu-button:hover {
+    scale: 1.1; /* Mărește butonul cu 10% */
+    background-color: rgb(80, 80, 80); /* Îl face puțin mai deschis la culoare */
+    -unity-background-image-tint-color: rgb(200, 200, 200); /* Schimbă nuanța imaginii */
+}
+
+/* Efectul de Active (când dai click) */
+.menu-button:active {
+    scale: 0.95; /* Se micșorează ușor la click pentru feedback */
+    background-color: rgb(30, 30, 30);
+}
