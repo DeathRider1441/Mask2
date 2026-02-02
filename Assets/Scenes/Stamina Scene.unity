@@ -5212,6 +5212,7 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 --- !u!1 &1015542548
 GameObject:
@@ -5307,6 +5308,8 @@ MonoBehaviour:
   transitionSpeed: 2
   useSmoothing: 1
 >>>>>>> Tavi
+=======
+>>>>>>> Silviu
 --- !u!1 &1289839120
 GameObject:
   m_ObjectHideFlags: 0

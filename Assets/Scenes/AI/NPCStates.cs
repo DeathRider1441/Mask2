@@ -11,6 +11,7 @@ public class PatrolState : INPCState
     public void EnterState(NPCBase npc)
     {
         if (npc.Agent.isOnNavMesh) npc.Agent.isStopped = false;
+        npc.Agent.stoppingDistance = 1.5f;
         
         // Verificăm dacă avem unde să mergem
         if (npc.patrolRoute.Count == 0)
@@ -43,7 +44,16 @@ public class PatrolState : INPCState
         Transform targetTransform = npc.patrolRoute[npc.currentPatrolIndex].point;
         if (targetTransform != null)
         {
-            npc.Agent.SetDestination(targetTransform.position);
+            // Căutăm cel mai apropiat punct valid pe NavMesh într-o rază de 2 metri
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(targetTransform.position, out hit, 2.0f, NavMesh.AllAreas))
+            {
+                npc.Agent.SetDestination(hit.position);
+            }
+            else
+            {
+                Debug.LogError($"Punctul de patrulă {npc.currentPatrolIndex} este prea departe de NavMesh!");
+            }
         }
     }
 
@@ -151,6 +161,7 @@ public class ChaseState : INPCState
     private Vector3 lastKnownPosition;
     private Vector3 lastMoveDirection;
     private float predictionForce = 1.2f; // Cât de mult anticipează mișcarea (secunde)
+    private float speedMultiplier = 1.3f;
 
     public void EnterState(NPCBase npc)
     {
@@ -162,6 +173,7 @@ public class ChaseState : INPCState
             npc.Agent.speed = npc.data.runSpeed;
             // Ne asigurăm că nu are stopping distance mare pentru a nu se opri prea devreme
             npc.Agent.stoppingDistance = 2f;
+            npc.Agent.speed = npc.data.runSpeed * speedMultiplier;
         }
         boredomTimer = 0f;
     }
@@ -245,15 +257,12 @@ public class InvestigateState : INPCState
 {
     public NPCBase.NPCStateID StateID => NPCBase.NPCStateID.Investigate;
     private Vector3 targetPosition;
-    private float waitTimer;
 
     public void SetTarget(Vector3 pos) => targetPosition = pos;
 
-    // Metodă nouă pentru a schimba direcția din mers
     public void RefreshTarget(NPCBase npc, Vector3 newPos)
     {
         targetPosition = newPos;
-        waitTimer = 0f; // Resetăm timpul de așteptare pentru noul zgomot
         if (npc.Agent.isOnNavMesh)
         {
             npc.Agent.SetDestination(targetPosition);
@@ -262,26 +271,30 @@ public class InvestigateState : INPCState
 
     public void EnterState(NPCBase npc)
     {
-        waitTimer = 0f;
         if (npc.Agent.isOnNavMesh)
         {
             npc.Agent.isStopped = false;
+            npc.Agent.speed = npc.data.walkSpeed; // Investigăm la viteză de mers
             npc.Agent.SetDestination(targetPosition);
+            npc.Agent.stoppingDistance = 1.0f;
         }
     }
 
     public void DoState(NPCBase npc)
     {
-        if (npc.canSeePlayer) { npc.ToChase(); return; }
+        // Dacă vede jucătorul în timp ce investighează, trece direct la urmărire
+        if (npc.canSeePlayer) 
+        { 
+            npc.ToChase(); 
+            return; 
+        }
 
-        // Verificăm dacă a ajuns la zgomot
+        // Verificăm dacă a ajuns la locul zgomotului
         if (!npc.Agent.pathPending && npc.Agent.remainingDistance <= npc.Agent.stoppingDistance)
         {
-            waitTimer += Time.deltaTime;
-            if (waitTimer >= 3f) // După 3 secunde de căutat, pleacă
-            {
-                npc.ToPatrol();
-            }
+            // În loc de timer local, folosim starea de Wait deja existentă
+            // Putem pune o durată fixă (ex: 3 secunde) sau una din EnemyData dacă ai
+            npc.ToWait(3f); 
         }
     }
 
@@ -317,7 +330,7 @@ public class AttackState : INPCState
         );
 
         // Dacă jucătorul a ieșit din rază → Chase
-        if (distanceToPlayer > npc.Agent.stoppingDistance + 1f)
+        if (!isAttacking && distanceToPlayer > npc.Agent.stoppingDistance + 1.5f)
         {
             npc.ToChase();
             return;

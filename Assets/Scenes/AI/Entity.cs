@@ -48,7 +48,7 @@ public class Entity : MonoBehaviour
         if (isDead || playerTransform == null || data == null) return;
 
         CheckDetection();
-        HandleDetectionLogic();
+        // HandleDetectionLogic();
     }
 
     public virtual void TakeDamage(int amount)
@@ -77,15 +77,17 @@ public class Entity : MonoBehaviour
 
     private void CheckDetection()
     {
-        // Dacă playerul nu este nici măcar în trigger-ul conului, nu mai facem calcule
         if (!isPlayerInTrigger)
         {
             canSeePlayer = false;
             return;
         }
 
-        // Dacă e în trigger, verificăm prin Raycast dacă sunt obstacole (ziduri)
-        Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
+        // Calculăm direcția către jucător
+        // Adăugăm un mic offset pe Y (Vector3.up * 0.5f) pentru a ținti corpul, nu picioarele
+        Vector3 targetPos = playerTransform.position + Vector3.up * 0.5f;
+        Vector3 directionToPlayer = (targetPos - (transform.position + Vector3.up)).normalized;
+        
         float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
 
         RaycastHit hit;
@@ -95,6 +97,7 @@ public class Entity : MonoBehaviour
         {
             if (hit.collider.CompareTag("Player"))
             {
+                // Verificăm dacă jucătorul este crouch pentru a reduce viteza de detecție (Opțional)
                 canSeePlayer = true;
                 return;
             }
@@ -110,12 +113,12 @@ public class Entity : MonoBehaviour
 
     protected virtual void HandleDetectionLogic()
     {
-        if (canSeePlayer)
-            currentDetection += data.detectionSpeed * Time.deltaTime;
-        else
-            currentDetection -= data.coolDownSpeed * Time.deltaTime;
+        // if (canSeePlayer)
+        //     currentDetection += data.detectionSpeed * Time.deltaTime;
+        // else
+        //     currentDetection -= data.coolDownSpeed * Time.deltaTime;
 
-        currentDetection = Mathf.Clamp(currentDetection, 0, 100);
+        // currentDetection = Mathf.Clamp(currentDetection, 0, 100);
 
         // ADAUGĂ ACEASTĂ VERIFICARE:
         // Trigerăm detecția DOAR dacă bara abia a ajuns la 100. 

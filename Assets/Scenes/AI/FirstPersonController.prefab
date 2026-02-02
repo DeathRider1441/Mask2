@@ -260,6 +260,37 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3133783085006473617}
   m_Enabled: 1
+--- !u!1 &4307322446661937869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4239304296495316600}
+  m_Layer: 0
+  m_Name: ThrowPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4239304296495316600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4307322446661937869}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.53, z: 0.66}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3920647528443087457}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6363169529124282708
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,6 +530,9 @@ GameObject:
   - component: {fileID: 7928168792656963442}
   - component: {fileID: 6843843151428381469}
   - component: {fileID: 6422241235695469121}
+  - component: {fileID: 503587495941858318}
+  - component: {fileID: -3630133681294876427}
+  - component: {fileID: 4049583380057258822}
   m_Layer: 0
   m_Name: FirstPersonController
   m_TagString: Player
@@ -520,6 +554,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5397069528425681331}
+  - {fileID: 4239304296495316600}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6259321831462339435
@@ -684,3 +719,54 @@ MonoBehaviour:
   joint: {fileID: 5397069528425681331}
   bobSpeed: 10
   bobAmount: {x: 0, y: 0.1, z: 0}
+--- !u!114 &503587495941858318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766024595948897486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f516d7c2ea7cd89339291e2a6e097247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ThrowObject
+  prefabToThrow: {fileID: 8151082729584426795, guid: 29442130789b886d89ebf6cdb6b0469a, type: 3}
+  throwPoint: {fileID: 4239304296495316600}
+  throwForce: 15
+  throwKey: 103
+--- !u!114 &-3630133681294876427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766024595948897486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0989bce52cb50830d88cf64b94cde112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  maxHealth: 3
+  currentHealth: 0
+  fallDuration: 1.5
+  tiltAngle: 75
+  sinkAmount: 1.3
+  damageSoundName: PlayerDamage
+  deathSoundName: PlayerDeath
+--- !u!114 &4049583380057258822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766024595948897486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714f39a026e696c6d95124bd572943b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
+  interactionDistance: 3.5
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 1

@@ -1,0 +1,871 @@
+fileFormatVersion: 2
+guid: f773c3881469dee46b28d4c2862ada26
+ModelImporter:
+  serializedVersion: 24200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ennemies_sh2
+    second: {fileID: 2100000, guid: cc978168e17eac64f92fcf71bff2a999, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mask_sh1
+    second: {fileID: 2100000, guid: c8345707942900e45bd4c614a0b9320d, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: FinalBaseMesh:Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftHandThumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftHandThumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftHandThumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftHandIndex1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftHandIndex2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftHandIndex3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftHandRing1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftHandRing2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftHandRing3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftHandPinky1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftHandPinky2
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:LeftHandPinky3
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightHandRing1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightHandRing2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightHandRing3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightHandPinky1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightHandPinky2
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:RightHandPinky3
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FinalBaseMesh:Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Rig_Enemies_Main_mesh_FINAL(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Villan_en_01
+      parentName: Rig_Enemies_Main_mesh_FINAL(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:Hips
+      parentName: Rig_Enemies_Main_mesh_FINAL(Clone)
+      position: {x: -4.656613e-10, y: 0.18024826, z: 0.001671091}
+      rotation: {x: -0, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:Spine
+      parentName: FinalBaseMesh:Hips
+      position: {x: -0, y: 0.016454926, z: -0.0026147163}
+      rotation: {x: -0.07871073, y: -0, z: -0, w: 0.9968975}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:Spine1
+      parentName: FinalBaseMesh:Spine
+      position: {x: -0, y: 0.01943824, z: -2.1412191e-11}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:Spine2
+      parentName: FinalBaseMesh:Spine1
+      position: {x: -0, y: 0.022215148, z: -2.795537e-11}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:Neck
+      parentName: FinalBaseMesh:Spine2
+      position: {x: -0, y: 0.02499204, z: 9.1263586e-10}
+      rotation: {x: 0.07871073, y: -0, z: -0, w: 0.9968975}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:Head
+      parentName: FinalBaseMesh:Neck
+      position: {x: -0, y: 0.01493452, z: 0.005272857}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:HeadTop_End
+      parentName: FinalBaseMesh:Head
+      position: {x: -0, y: 0.034546033, z: 0.012196998}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftShoulder
+      parentName: FinalBaseMesh:Spine2
+      position: {x: -0.010465978, y: 0.020889534, z: -0.0006188433}
+      rotation: {x: 0.5591801, y: -0.4215762, z: 0.58976865, w: 0.40219915}
+      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000004}
+    - name: FinalBaseMesh:LeftArm
+      parentName: FinalBaseMesh:LeftShoulder
+      position: {x: -6.2076705e-11, y: 0.02251391, z: 3.771133e-10}
+      rotation: {x: -0.14523992, y: -0.144402, z: -0.0037294324, w: 0.97879493}
+      scale: {x: 1.0000001, y: 1.0000005, z: 1.0000001}
+    - name: FinalBaseMesh:LeftForeArm
+      parentName: FinalBaseMesh:LeftArm
+      position: {x: 8.939057e-11, y: 0.04390861, z: -1.2478311e-10}
+      rotation: {x: -0.014856396, y: 0.001919478, z: -0.03764207, w: 0.99917907}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000001}
+    - name: FinalBaseMesh:LeftHand
+      parentName: FinalBaseMesh:LeftForeArm
+      position: {x: -9.5440794e-11, y: 0.036261663, z: 0.0000000012676399}
+      rotation: {x: 0.08301968, y: 0.029356083, z: 0.02968785, w: 0.995673}
+      scale: {x: 1.0000001, y: 1.0000005, z: 1.0000001}
+    - name: FinalBaseMesh:LeftHandThumb1
+      parentName: FinalBaseMesh:LeftHand
+      position: {x: 0.0059673, y: 0.009682505, z: 0.0027045014}
+      rotation: {x: 0.038354214, y: 0.009425384, z: -0.32524478, w: 0.9448047}
+      scale: {x: 1.0000004, y: 1.0000006, z: 1.0000002}
+    - name: FinalBaseMesh:LeftHandThumb2
+      parentName: FinalBaseMesh:LeftHandThumb1
+      position: {x: 0.00075929076, y: 0.00932175, z: 1.3840346e-10}
+      rotation: {x: 0.02210965, y: 0.00017496469, z: -0.043141115, w: 0.99882436}
+      scale: {x: 0.99999994, y: 0.9999998, z: 0.99999994}
+    - name: FinalBaseMesh:LeftHandThumb3
+      parentName: FinalBaseMesh:LeftHandThumb2
+      position: {x: -0.0005430131, y: 0.007805197, z: -1.4143406e-11}
+      rotation: {x: -0.038935263, y: 0.0016541821, z: 0.007949633, w: 0.99920875}
+      scale: {x: 1.0000002, y: 1.0000007, z: 1.0000004}
+    - name: FinalBaseMesh:LeftHandThumb4
+      parentName: FinalBaseMesh:LeftHandThumb3
+      position: {x: -0.00021627716, y: 0.006319856, z: -6.9810074e-11}
+      rotation: {x: -0, y: -0, z: -4.440891e-16, w: 1}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+    - name: FinalBaseMesh:LeftHandIndex1
+      parentName: FinalBaseMesh:LeftHand
+      position: {x: 0.006173683, y: 0.023513133, z: -0.00045054077}
+      rotation: {x: 0.07583207, y: -0.008847988, z: -0.06680985, w: 0.99484056}
+      scale: {x: 1.0000002, y: 0.99999994, z: 1.0000001}
+    - name: FinalBaseMesh:LeftHandIndex2
+      parentName: FinalBaseMesh:LeftHandIndex1
+      position: {x: -0.000029315574, y: 0.006481269, z: -2.5316547e-11}
+      rotation: {x: 0.039878152, y: 0.00010889206, z: 0.0034779995, w: 0.99919856}
+      scale: {x: 1, y: 1.0000005, z: 1}
+    - name: FinalBaseMesh:LeftHandIndex3
+      parentName: FinalBaseMesh:LeftHandIndex2
+      position: {x: 0.000073648785, y: 0.0061152987, z: -1.523503e-11}
+      rotation: {x: -0.03909915, y: -0.00008011911, z: -0.0054951324, w: 0.9992203}
+      scale: {x: 1, y: 0.9999997, z: 1.0000002}
+    - name: FinalBaseMesh:LeftHandIndex4
+      parentName: FinalBaseMesh:LeftHandIndex3
+      position: {x: -0.00004433342, y: 0.00521694, z: -3.138254e-11}
+      rotation: {x: -0, y: -0, z: -1.7763564e-15, w: 1}
+      scale: {x: 1, y: 1.0000004, z: 1.0000001}
+    - name: FinalBaseMesh:LeftHandMiddle1
+      parentName: FinalBaseMesh:LeftHand
+      position: {x: 0.0017880161, y: 0.023861017, z: 0.00001260793}
+      rotation: {x: -0.015434792, y: 0.00009524821, z: -0.006167882, w: 0.99986184}
+      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000004}
+    - name: FinalBaseMesh:LeftHandMiddle2
+      parentName: FinalBaseMesh:LeftHandMiddle1
+      position: {x: -0.000097408985, y: 0.00648456, z: 2.5927144e-10}
+      rotation: {x: 0.036406863, y: -0.00039712017, z: 0.008351384, w: 0.99930215}
+      scale: {x: 1.0000005, y: 1.0000007, z: 1.0000006}
+    - name: FinalBaseMesh:LeftHandMiddle3
+      parentName: FinalBaseMesh:LeftHandMiddle2
+      position: {x: 0.00004856041, y: 0.0064964867, z: 4.8596946e-11}
+      rotation: {x: 0.0047613974, y: 0.00000003042926, z: 0.00000006090637, w: 0.9999887}
+      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000001}
+    - name: FinalBaseMesh:LeftHandMiddle4
+      parentName: FinalBaseMesh:LeftHandMiddle3
+      position: {x: 0.000048848487, y: 0.0058448873, z: 1.5806201e-12}
+      rotation: {x: -0, y: -0, z: 9.575673e-16, w: 1}
+      scale: {x: 1.0000004, y: 1.0000004, z: 1.0000002}
+    - name: FinalBaseMesh:LeftHandRing1
+      parentName: FinalBaseMesh:LeftHand
+      position: {x: -0.001960822, y: 0.024038915, z: -0.0005132551}
+      rotation: {x: 0.026214784, y: 0.0038631544, z: 0.036073323, w: 0.9989978}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: FinalBaseMesh:LeftHandRing2
+      parentName: FinalBaseMesh:LeftHandRing1
+      position: {x: -0.000037986043, y: 0.0059512886, z: -1.1715076e-10}
+      rotation: {x: 0.034628533, y: -0.000083351224, z: 0.0046843984, w: 0.9993893}
+      scale: {x: 1.0000001, y: 1.0000006, z: 1.0000001}
+    - name: FinalBaseMesh:LeftHandRing3
+      parentName: FinalBaseMesh:LeftHandRing2
+      position: {x: 0.000028400533, y: 0.005428142, z: -2.6334846e-12}
+      rotation: {x: -0.04135277, y: -0.000012659987, z: -0.00012234678, w: 0.9991447}
+      scale: {x: 1.0000002, y: 1.0000011, z: 1.0000005}
+    - name: FinalBaseMesh:LeftHandRing4
+      parentName: FinalBaseMesh:LeftHandRing3
+      position: {x: 0.000009585507, y: 0.004631301, z: 2.5730529e-12}
+      rotation: {x: 0.0000000037252894, y: 8.881782e-16, z: -1.1324272e-14, w: 1}
+      scale: {x: 1, y: 1.0000002, z: 1}
+    - name: FinalBaseMesh:LeftHandPinky1
+      parentName: FinalBaseMesh:LeftHand
+      position: {x: -0.0060008774, y: 0.02251234, z: -0.0006880257}
+      rotation: {x: 0.052629042, y: 0.039405618, z: 0.013803196, w: 0.9977409}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000001}
+    - name: FinalBaseMesh:LeftHandPinky2
+      parentName: FinalBaseMesh:LeftHandPinky1
+      position: {x: -0.000010265742, y: 0.0052845846, z: -3.715126e-12}
+      rotation: {x: 0.03623031, y: -0.00009946894, z: 0.0007908893, w: 0.9993432}
+      scale: {x: 1.0000001, y: 1.000001, z: 1.0000001}
+    - name: FinalBaseMesh:LeftHandPinky3
+      parentName: FinalBaseMesh:LeftHandPinky2
+      position: {x: 0.00000065051336, y: 0.0042023626, z: -9.953164e-11}
+      rotation: {x: -0.04048293, y: -0.000033515407, z: 0.00047590543, w: 0.9991802}
+      scale: {x: 1.0000001, y: 1, z: 1.0000002}
+    - name: FinalBaseMesh:LeftHandPinky4
+      parentName: FinalBaseMesh:LeftHandPinky3
+      position: {x: 0.000009615039, y: 0.0033733372, z: -2.5658089e-11}
+      rotation: {x: -0, y: -0, z: -3.5527128e-15, w: 1}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: FinalBaseMesh:RightShoulder
+      parentName: FinalBaseMesh:Spine2
+      position: {x: 0.010465978, y: 0.02089978, z: -0.00068331935}
+      rotation: {x: -0.55691177, y: -0.4234645, z: 0.59144634, w: -0.40089694}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: FinalBaseMesh:RightArm
+      parentName: FinalBaseMesh:RightShoulder
+      position: {x: 6.97604e-11, y: 0.02251391, z: 3.7579617e-10}
+      rotation: {x: 0.14527585, y: -0.14040962, z: -0.00044593218, w: -0.9793773}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: FinalBaseMesh:RightForeArm
+      parentName: FinalBaseMesh:RightArm
+      position: {x: 4.8263758e-11, y: 0.043901533, z: 5.7702265e-10}
+      rotation: {x: -0.014381047, y: -0.0017930563, z: 0.037448335, w: 0.99919355}
+      scale: {x: 1.0000002, y: 1.0000006, z: 1.0000004}
+    - name: FinalBaseMesh:RightHand
+      parentName: FinalBaseMesh:RightForeArm
+      position: {x: -1.5783615e-10, y: 0.036271792, z: -0.0000000012877447}
+      rotation: {x: 0.08646768, y: -0.018889327, z: -0.031761233, w: 0.99556905}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: FinalBaseMesh:RightHandThumb1
+      parentName: FinalBaseMesh:RightHand
+      position: {x: -0.005998724, y: 0.009645006, z: 0.0025293375}
+      rotation: {x: 0.031813562, y: -0.009781639, z: 0.3187984, w: 0.94723797}
+      scale: {x: 1, y: 1.0000005, z: 1.0000001}
+    - name: FinalBaseMesh:RightHandThumb2
+      parentName: FinalBaseMesh:RightHandThumb1
+      position: {x: -0.00079475594, y: 0.009275205, z: 1.1645694e-10}
+      rotation: {x: 0.025796702, y: -0.00048722874, z: 0.04426863, w: 0.99868643}
+      scale: {x: 1.0000002, y: 1.0000006, z: 1.0000005}
+    - name: FinalBaseMesh:RightHandThumb3
+      parentName: FinalBaseMesh:RightHandThumb2
+      position: {x: 0.0004879292, y: 0.008001637, z: 1.1788987e-11}
+      rotation: {x: -0.040153958, y: -0.0015759937, z: -0.0026082818, w: 0.9991889}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000002}
+    - name: FinalBaseMesh:RightHandThumb4
+      parentName: FinalBaseMesh:RightHandThumb3
+      position: {x: 0.00030682722, y: 0.0063288454, z: -5.457524e-11}
+      rotation: {x: -0, y: -0, z: 1.7763564e-15, w: 1}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000004}
+    - name: FinalBaseMesh:RightHandIndex1
+      parentName: FinalBaseMesh:RightHand
+      position: {x: -0.0061833565, y: 0.023210535, z: -0.0003357409}
+      rotation: {x: 0.07407277, y: 0.0066559003, z: 0.06248763, w: 0.9952709}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: FinalBaseMesh:RightHandIndex2
+      parentName: FinalBaseMesh:RightHandIndex1
+      position: {x: 0.000054429966, y: 0.006217474, z: 5.8249544e-11}
+      rotation: {x: 0.038931973, y: -0.00004989885, z: -0.005468633, w: 0.9992269}
+      scale: {x: 1, y: 1.0000006, z: 1.0000001}
+    - name: FinalBaseMesh:RightHandIndex3
+      parentName: FinalBaseMesh:RightHandIndex2
+      position: {x: -0.000068138834, y: 0.006338073, z: -2.3418023e-11}
+      rotation: {x: -0.04053096, y: 0.000059029546, z: 0.0018151358, w: 0.9991767}
+      scale: {x: 1.0000004, y: 1.0000006, z: 1.0000005}
+    - name: FinalBaseMesh:RightHandIndex4
+      parentName: FinalBaseMesh:RightHandIndex3
+      position: {x: 0.000013708536, y: 0.0049006757, z: 3.35967e-11}
+      rotation: {x: -0.00000001117587, y: 0.00000007984502, z: 0.000000019247473, w: 1}
+      scale: {x: 1.0000001, y: 0.99999994, z: 0.99999994}
+    - name: FinalBaseMesh:RightHandMiddle1
+      parentName: FinalBaseMesh:RightHand
+      position: {x: -0.0016718155, y: 0.02666848, z: -0.00015099026}
+      rotation: {x: 0.028661925, y: 0.00045832054, z: 0.015983108, w: 0.9994613}
+      scale: {x: 0.99999994, y: 1, z: 1.0000001}
+    - name: FinalBaseMesh:RightHandMiddle2
+      parentName: FinalBaseMesh:RightHandMiddle1
+      position: {x: 0.000052783555, y: 0.0056407116, z: 1.5251637e-10}
+      rotation: {x: 0.037722368, y: -0.000015883059, z: -0.006423865, w: 0.99926764}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000001}
+    - name: FinalBaseMesh:RightHandMiddle3
+      parentName: FinalBaseMesh:RightHandMiddle2
+      position: {x: -0.00005398522, y: 0.0055247634, z: -4.8126798e-11}
+      rotation: {x: -0.04044602, y: 0.000096142394, z: 0.0016685673, w: 0.9991804}
+      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000002}
+    - name: FinalBaseMesh:RightHandMiddle4
+      parentName: FinalBaseMesh:RightHandMiddle3
+      position: {x: 0.0000012016341, y: 0.004782944, z: 4.9243738e-11}
+      rotation: {x: -0, y: -0, z: -8.881782e-16, w: 1}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1}
+    - name: FinalBaseMesh:RightHandRing1
+      parentName: FinalBaseMesh:RightHand
+      position: {x: 0.0024359794, y: 0.025766442, z: -0.0005784419}
+      rotation: {x: 0.053450428, y: -0.004639863, z: -0.023961095, w: 0.9982722}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+    - name: FinalBaseMesh:RightHandRing2
+      parentName: FinalBaseMesh:RightHandRing1
+      position: {x: 0.00003812786, y: 0.0052699074, z: 1.3957563e-11}
+      rotation: {x: 0.035581917, y: -0.00009657394, z: -0.0062239445, w: 0.9993474}
+      scale: {x: 0.99999994, y: 1.0000002, z: 1}
+    - name: FinalBaseMesh:RightHandRing3
+      parentName: FinalBaseMesh:RightHandRing2
+      position: {x: -0.000043108997, y: 0.0049028117, z: 1.6796271e-11}
+      rotation: {x: -0.0382419, y: 0.00025920375, z: 0.0032108866, w: 0.99926335}
+      scale: {x: 0.99999994, y: 0.9999996, z: 0.9999998}
+    - name: FinalBaseMesh:RightHandRing4
+      parentName: FinalBaseMesh:RightHandRing3
+      position: {x: 0.0000049810997, y: 0.004072498, z: -3.8570744e-12}
+      rotation: {x: -0, y: -0, z: -2.664535e-15, w: 1}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000004}
+    - name: FinalBaseMesh:RightHandPinky1
+      parentName: FinalBaseMesh:RightHand
+      position: {x: 0.0054191933, y: 0.022038532, z: -0.0003481057}
+      rotation: {x: -0.03736379, y: 0.0270218, z: 0.030725747, w: -0.99846363}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: FinalBaseMesh:RightHandPinky2
+      parentName: FinalBaseMesh:RightHandPinky1
+      position: {x: 0.000011832201, y: 0.005311487, z: -8.473027e-12}
+      rotation: {x: 0.032422524, y: 0.00036041986, z: -0.0003001585, w: 0.9994741}
+      scale: {x: 1, y: 0.9999998, z: 0.9999998}
+    - name: FinalBaseMesh:RightHandPinky3
+      parentName: FinalBaseMesh:RightHandPinky2
+      position: {x: 0.0000070448236, y: 0.0046173222, z: -1.2128955e-11}
+      rotation: {x: -0.034494106, y: 0.00027233758, z: -0.002728835, w: 0.99940115}
+      scale: {x: 1, y: 1.0000002, z: 1}
+    - name: FinalBaseMesh:RightHandPinky4
+      parentName: FinalBaseMesh:RightHandPinky3
+      position: {x: -0.000018876384, y: 0.003622945, z: -6.3814553e-12}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: FinalBaseMesh:LeftUpLeg
+      parentName: FinalBaseMesh:Hips
+      position: {x: -0.015466393, y: -0.009139156, z: -0.0021263727}
+      rotation: {x: 0.0015899308, y: -0.027396895, z: 0.99794436, w: 0.05791398}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1}
+    - name: FinalBaseMesh:LeftLeg
+      parentName: FinalBaseMesh:LeftUpLeg
+      position: {x: 3.3983802e-10, y: 0.07685103, z: -1.9660905e-12}
+      rotation: {x: -0.011800746, y: -0.00049697876, z: 0.042073853, w: 0.9990448}
+      scale: {x: 1.0000002, y: 1.0000001, z: 0.99999994}
+    - name: FinalBaseMesh:LeftFoot
+      parentName: FinalBaseMesh:LeftLeg
+      position: {x: 1.120404e-10, y: 0.07183921, z: -1.7321154e-10}
+      rotation: {x: 0.49098364, y: -0.033345837, z: 0.018811563, w: 0.8703272}
+      scale: {x: 1.0000004, y: 1.0000002, z: 1.0000004}
+    - name: FinalBaseMesh:LeftToeBase
+      parentName: FinalBaseMesh:LeftFoot
+      position: {x: 6.823435e-12, y: 0.031356975, z: -8.0185697e-10}
+      rotation: {x: 0.2979839, y: 0.017462038, z: -0.0054520727, w: 0.95439565}
+      scale: {x: 1.0000005, y: 1.0000006, z: 1}
+    - name: FinalBaseMesh:LeftToe_End
+      parentName: FinalBaseMesh:LeftToeBase
+      position: {x: 1.455462e-11, y: 0.012148783, z: 8.740055e-12}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000004, y: 1, z: 1}
+    - name: FinalBaseMesh:RightUpLeg
+      parentName: FinalBaseMesh:Hips
+      position: {x: 0.015466393, y: -0.009139156, z: -0.0025071632}
+      rotation: {x: -0.0013368317, y: -0.023025569, z: 0.99805325, w: -0.057945546}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: FinalBaseMesh:RightLeg
+      parentName: FinalBaseMesh:RightUpLeg
+      position: {x: 5.957484e-11, y: 0.07681746, z: 1.9032115e-10}
+      rotation: {x: -0.021626163, y: 0.0009113898, z: -0.042095613, w: 0.9988791}
+      scale: {x: 1.0000005, y: 1.0000006, z: 1}
+    - name: FinalBaseMesh:RightFoot
+      parentName: FinalBaseMesh:RightLeg
+      position: {x: 3.6041888e-11, y: 0.071904264, z: 2.150949e-10}
+      rotation: {x: 0.49920112, y: 0.032524332, z: -0.018755566, w: 0.8656724}
+      scale: {x: 1.000001, y: 1.0000008, z: 1.0000004}
+    - name: FinalBaseMesh:RightToeBase
+      parentName: FinalBaseMesh:RightFoot
+      position: {x: 2.782916e-12, y: 0.03171846, z: 1.750129e-11}
+      rotation: {x: 0.29406464, y: -0.016048921, z: 0.004938518, w: 0.95563805}
+      scale: {x: 1.0000004, y: 1.0000002, z: 1}
+    - name: FinalBaseMesh:RightToe_End
+      parentName: FinalBaseMesh:RightToeBase
+      position: {x: 4.9184654e-12, y: 0.012121704, z: -3.3666037e-12}
+      rotation: {x: -0, y: 9.313227e-10, z: -4.6566134e-10, w: 1}
+      scale: {x: 0.9999998, y: 0.99999994, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
