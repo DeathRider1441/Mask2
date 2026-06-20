@@ -13,7 +13,7 @@ public class EnemyData : ScriptableObject
     
     [Header("Detection Settings")]
     [Tooltip("Cât de repede crește bara de detecție (per secundă)")]
-    public float detectionSpeed = 50f; 
+    public float detectionSpeed = 10f; 
     [Tooltip("Cât de repede scade când jucătorul se ascunde")]
     public float coolDownSpeed = 20f;
     [Header("Chase Settings")]
